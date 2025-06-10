@@ -4,7 +4,7 @@ import { LoginScreenNavigationProp } from "@/types/navigation";
 import { Ionicons } from "@expo/vector-icons";
 import { Button } from "@react-navigation/elements";
 import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   Image,
@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const router = useRouter();
+
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
           <LinearGradient colors={["#0b0b0f", "#0a0a12", "#050509"]} style={{ flex: 1 }}>
@@ -72,7 +72,7 @@ export default function LoginScreen({ navigation }: Props) {
 </View>
 
 
-        <Button color="#7f5af0" variant="filled" style={{ padding:15,marginTop:20 }}>
+        <Button color="#7f5af0" variant="filled" style={{ padding:15,marginTop:20 }} >
           Sign In
         </Button>
 
@@ -87,9 +87,9 @@ export default function LoginScreen({ navigation }: Props) {
 
         <Text style={styles.signInPrompt}>
           Don’t have an account?{" "}
-          <Text style={styles.signInLink} onPress={() => navigation.navigate("Register")}>
-            Register
-          </Text>
+         <Text style={styles.signInLink} onPress={() => router.push("/auth/register")}>
+  Register
+</Text>
         </Text>
       </ScrollView>
       </LinearGradient>
