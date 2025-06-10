@@ -84,9 +84,9 @@ export default function RegisterScreen() {
           <View style={styles.IconsContainer}>
             <Text style={styles.signWith}>or sign up with</Text>
             <View style={styles.socialContainer}>
-              <Image source={require("@/assets/icons/gmail.png")} style={styles.socialIcon} />
-              <Image source={require("@/assets/icons/facebook.png")} style={styles.socialIcon} />
-              <Image source={require("@/assets/icons/apple.png")} style={styles.socialIcon} />
+              <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
+              <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
+              <Image source={require("@/assets/icons/apple-white.png")} style={styles.socialIcon} />
             </View>
           </View>
 
