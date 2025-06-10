@@ -27,83 +27,77 @@ export default function LoginScreen({ navigation }: Props) {
 
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
-          <LinearGradient colors={["#0b0b0f", "#0a0a12", "#050509"]} style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30 }}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.push("/")}>
-            <Ionicons name="arrow-back" size={15} color="#ffffff" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>Sign In</Text>
-        </View>
-
-        <View style={styles.upperContainer}>
-          <Text style={styles.logo}>MUSE</Text>
-          <Text style={styles.description}>Log in now to start your musical{"\n"}journey with Muse.</Text>
-        </View>
-
-     <View style={styles.InputContainer}>
-  <Label>Email</Label>
-  <Input
-    placeholder="Enter your email"
-    value={email}
-    onChangeText={setEmail}
-    keyboardType="email-address"
-  />
-
-  <Label style={{ marginTop: 16 }}>Password</Label>
-  <View style={styles.passwordWrapper}>
-    <Input
-      placeholder="Enter your password"
-      value={password}
-      onChangeText={setPassword}
-      secureTextEntry={!showPassword}
-    />
-    <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)} style={styles.eyeIcon}>
-      <Ionicons name={showPassword ? "eye-off" : "eye"} size={18} color="#999" style={
-        {
-          marginTop:5
-        }
-      } />
-    </TouchableOpacity>
-  </View>
-
-
-  <View style={styles.forgotPasswordContainer}>
-    <TouchableOpacity onPress={() => router.push("/auth/ForgotPassword")}>
-  <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-</TouchableOpacity>
-
-  </View>
-</View>
-
-
-        <Button color="#7f5af0" variant="filled" style={{ padding:15,marginTop:20 }} >
-          Sign In
-        </Button>
-
-        <View style={styles.IconsContainer}>
-          <Text style={styles.signWith}>or sign in with</Text>
-          <View style={styles.socialContainer}>
-              <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
-                        <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
-                        <Image source={require("@/assets/icons/apple-white.png")} style={styles.socialIcon} />
+      <LinearGradient colors={["#0b0b0f", "#0a0a12", "#050509"]} style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30 }}>
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => router.push("/")}>
+              <Ionicons name="arrow-back" size={15} color="#ffffff" />
+            </TouchableOpacity>
           </View>
-        </View>
 
-        <Text style={styles.signInPrompt}>
-          Don’t have an account?{" "}
-         <Text style={styles.signInLink} onPress={() => router.push("/auth/register")}>
-  Register
-</Text>
-        </Text>
-      </ScrollView>
+          <View style={styles.upperContainer}>
+            <Text style={styles.logo}>MUSE</Text>
+            <Text style={styles.description}>Log in now to start your musical{"\n"}journey with Muse.</Text>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <Label>Email</Label>
+            <Input placeholder="Enter your email" value={email} onChangeText={setEmail} keyboardType="email-address" />
+
+            <Label style={{ marginTop: 16 }}>Password</Label>
+            <View style={styles.passwordWrapper}>
+              <Input
+                placeholder="Enter your password"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+              />
+              <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)} style={styles.eyeIcon}>
+                <Ionicons
+                  name={showPassword ? "eye-off" : "eye"}
+                  size={18}
+                  color="#999"
+                  style={{
+                    marginTop: 5,
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.forgotPasswordContainer}>
+              <TouchableOpacity onPress={() => router.push("/auth/ForgotPassword")}>
+                <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <Button color="#7f5af0" variant="filled" style={{ padding: 20, marginTop: 15 }}>
+            Sign In
+          </Button>
+
+          <View style={styles.IconsContainer}>
+            <Text style={styles.signWith}>or sign in with</Text>
+            <View style={styles.socialContainer}>
+              <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
+              <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
+              <Image source={require("@/assets/icons/apple-white.png")} style={styles.socialIcon} />
+            </View>
+          </View>
+
+          <Text style={styles.signInPrompt}>
+            Don’t have an account?
+            <Text style={styles.signInLink} onPress={() => router.push("/auth/register")}>
+              Register
+            </Text>
+          </Text>
+        </ScrollView>
       </LinearGradient>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-   logo: {
+  logo: {
     fontSize: 25,
     color: "#ffffff",
     fontFamily: "Poppins_700Bold",
@@ -124,7 +118,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 15,
     fontFamily: "Poppins_400Regular",
-    color:'#ffffff'
+    color: "#ffffff",
   },
 
   title: {
@@ -184,8 +178,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   socialIcon: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
     borderRadius: 20,
   },
   IconsContainer: {
@@ -210,13 +204,12 @@ const styles = StyleSheet.create({
     top: "20%",
   },
   forgotPasswordContainer: {
-  marginTop: 8,
-  alignItems: 'flex-end',
-},
+    marginTop: 8,
+    alignItems: "flex-end",
+  },
 
-forgotPasswordText: {
-  color: '#ffffff',
-  fontSize: 14,
-},
-
+  forgotPasswordText: {
+    color: "#ffffff",
+    fontSize: 14,
+  },
 });

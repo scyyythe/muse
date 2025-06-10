@@ -7,7 +7,6 @@ import Swiper from "react-native-web-swiper";
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -33,13 +32,13 @@ export default function WelcomeScreen() {
           <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
             <Image source={require("../assets/images/splash-icon.png")} style={styles.image} />
 
-<View style={styles.centerContainer}>   <Text style={styles.titleCenter}>Getting Started</Text>
-            <Text style={styles.descriptionCenter}>Start discovering your {"\n"} favorite tunes</Text>
-
-            <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
-              <Text style={styles.buttonText}>Let's Go</Text>
-            </Pressable></View>
-         
+            <View style={styles.centerContainer}>
+              <Text style={styles.titleCenter}>Getting Started</Text>
+              <Text style={styles.descriptionCenter}>Start discovering your {"\n"} favorite tunes</Text>
+              <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
+                <Text style={styles.buttonText}>Let's Go</Text>
+              </Pressable>
+            </View>
 
             <View style={styles.footer}>
               <Text style={styles.logo}>MUSE</Text>
@@ -49,9 +48,7 @@ export default function WelcomeScreen() {
         </Swiper>
 
         <View style={styles.indicatorWrapper}>
-          {[0, 1].map((i) => (
-            <View key={i} style={[styles.indicatorLine, index === i ? styles.active : styles.inactive]} />
-          ))}
+          {[0, 1].map((i) => (index === i ? <View key={i} style={[styles.indicatorLine, styles.active]} /> : null))}
         </View>
       </LinearGradient>
     </View>
@@ -70,14 +67,13 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginBottom: 30,
-    position:"absolute",
-    top:100,
+    position: "absolute",
+    top: 100,
   },
-  centerContainer:{
-    marginTop:80,
+  centerContainer: {
+    marginTop: 80,
   },
   upperContainer: {
- 
     borderColor: "#ccc",
     textAlign: "center",
     width: "100%",
@@ -92,7 +88,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     padding: 20,
     position: "absolute",
-    bottom: 50,
+    bottom: 100,
   },
   title: {
     fontSize: 26,
@@ -113,7 +109,7 @@ const styles = StyleSheet.create({
   titleCenter: {
     fontSize: 26,
     fontFamily: "Poppins_700Bold",
-    marginTop:20,
+    marginTop: 20,
     marginBottom: 5,
     textAlign: "center",
     color: "#ffffff",
@@ -150,7 +146,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#7f5af0",
-    paddingVertical: 14,
+    paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 50,
     alignItems: "center",

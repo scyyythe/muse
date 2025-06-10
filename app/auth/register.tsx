@@ -31,7 +31,7 @@ export default function RegisterScreen() {
             <TouchableOpacity onPress={() => router.back()}>
               <Ionicons name="arrow-back" size={15} color="#ffffff" />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>Sign Up</Text>
+            <Text style={styles.headerTitle}>Sign In</Text>
           </View>
 
           <View style={styles.upperContainer}>
@@ -41,19 +41,10 @@ export default function RegisterScreen() {
 
           <View style={styles.InputContainer}>
             <Label>Full Name</Label>
-            <Input
-              placeholder="Enter your full name"
-              value={fullName}
-              onChangeText={setFullName}
-            />
+            <Input placeholder="Enter your full name" value={fullName} onChangeText={setFullName} />
 
             <Label style={{ marginTop: 16 }}>Email</Label>
-            <Input
-              placeholder="Enter your email"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-            />
+            <Input placeholder="Enter your email" value={email} onChangeText={setEmail} keyboardType="email-address" />
 
             <Label style={{ marginTop: 16 }}>Password</Label>
             <View style={styles.passwordWrapper}>
@@ -64,11 +55,14 @@ export default function RegisterScreen() {
                 secureTextEntry={!showPassword}
               />
               <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)} style={styles.eyeIcon}>
-                <Ionicons name={showPassword ? "eye-off" : "eye"} size={18} color="#999" style={
-                       {
-                         marginTop:5
-                       }
-                     } />
+                <Ionicons
+                  name={showPassword ? "eye-off" : "eye"}
+                  size={18}
+                  color="#999"
+                  style={{
+                    marginTop: 5,
+                  }}
+                />
               </TouchableOpacity>
             </View>
 
@@ -81,7 +75,7 @@ export default function RegisterScreen() {
             />
           </View>
 
-          <Button color="#7f5af0" variant="filled" style={{ padding: 15, marginTop: 20 }}>
+          <Button color="#7f5af0" variant="filled" style={{ padding: 20, marginTop: 20 }}>
             Create Account
           </Button>
 
@@ -165,8 +159,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   socialIcon: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
     borderRadius: 20,
   },
   signWith: {

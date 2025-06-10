@@ -5,21 +5,12 @@ import { Button } from "@react-navigation/elements";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import React, { useState } from "react";
-import {
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function ForgotPasswordScreen() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
-  
     console.log("Password reset link sent to:", email);
   };
 
@@ -31,11 +22,10 @@ export default function ForgotPasswordScreen() {
             <TouchableOpacity onPress={() => router.back()}>
               <Ionicons name="arrow-back" size={15} color="#ffffff" />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>Forgot Password</Text>
           </View>
 
           <View style={styles.upperContainer}>
-            <Text style={styles.logo}>MUSE</Text>
+            <Text style={styles.logo}>Forgot Password</Text>
             <Text style={styles.description}>
               Enter your email and we'll send you {"\n"} instructions to reset your password.
             </Text>
@@ -43,20 +33,10 @@ export default function ForgotPasswordScreen() {
 
           <View style={styles.InputContainer}>
             <Label>Email</Label>
-            <Input
-              placeholder="Enter your email"
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-            />
+            <Input placeholder="Enter your email" value={email} onChangeText={setEmail} keyboardType="email-address" />
           </View>
 
-          <Button
-            color="#7f5af0"
-            variant="filled"
-            style={{ padding: 15, marginTop: 30 }}
-            onPress={handleSubmit}
-          >
+          <Button color="#7f5af0" variant="filled" style={{ padding: 20, marginTop: 30 }} onPress={handleSubmit}>
             Send Reset Link
           </Button>
         </ScrollView>
@@ -70,7 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "#ffffff",
     fontFamily: "Poppins_700Bold",
-    letterSpacing: 4,
+    letterSpacing: 0,
   },
   upperContainer: {
     width: "100%",
@@ -88,6 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: "Poppins_400Regular",
     color: "#ffffff",
+    textAlign: "center",
   },
   description: {
     fontSize: 14,
