@@ -79,7 +79,7 @@ export default function RegisterScreen() {
           />
         </View>
 
-        <Button color="#7f5af0" variant="filled" style={{ padding: 20, marginTop: 20 }}>
+        <Button color="#7f5af0" variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
           Create Account
         </Button>
 

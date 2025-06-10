@@ -9,9 +9,9 @@ export default function WelcomeScreen() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const textColor = useThemeColor({}, "text");
+  const backgroundColor = useThemeColor({}, "background");
   const subText = useThemeColor({}, "subText");
   const buttonText = useThemeColor({}, "buttonText");
-
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
@@ -21,7 +21,7 @@ export default function WelcomeScreen() {
   }, [index]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: backgroundColor }}>
       <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
         <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
           <View style={styles.textContainer}>
@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
   upperContainer: {
-    borderColor: "#ccc",
     textAlign: "center",
     width: "100%",
   },
@@ -107,7 +106,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     lineHeight: 25,
     alignSelf: "flex-start",
-    color: "#94a3b8",
   },
   titleCenter: {
     fontSize: 26,
@@ -121,7 +119,6 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     textAlign: "center",
     lineHeight: 25,
-    color: "#94a3b8",
   },
   signWith: {
     fontSize: 13,
@@ -155,7 +152,6 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: "#ffffff",
     fontSize: 16,
     fontFamily: "Poppins_400Regular",
   },
@@ -169,14 +165,14 @@ const styles = StyleSheet.create({
 
   logo: {
     fontSize: 25,
-    color: "#ffffff",
+
     fontFamily: "Poppins_700Bold",
     letterSpacing: 4,
   },
 
   subLogo: {
     fontSize: 12,
-    color: "#94a3b8",
+
     fontFamily: "Poppins_300Regular",
     marginTop: 2,
   },

@@ -1,9 +1,12 @@
+import { useThemeColor } from "@/hooks/useThemeColor";
 import { StyleSheet, Text, View } from "react-native";
-
 export default function ReviewsScreen() {
+  const textColor = useThemeColor({}, "text");
+  const subText = useThemeColor({}, "subText");
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the My Reviews Page</Text>
+      <Text style={[styles.text, { color: textColor }]}>Welcome to the My Reviews Page</Text>
     </View>
   );
 }

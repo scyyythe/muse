@@ -78,7 +78,7 @@ export default function LoginScreen({ navigation }: Props) {
           </View>
         </View>
 
-        <Button color="#7f5af0" onPress={handleLogin} variant="filled" style={{ padding: 20, marginTop: 15 }}>
+        <Button color="#7f5af0" onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
           Sign In
         </Button>
 
