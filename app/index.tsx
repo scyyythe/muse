@@ -20,7 +20,7 @@ export default function WelcomeScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      <LinearGradient colors={["#111827", "#1f2937", "#0f172a"]} style={{ flex: 1 }}>
+      <LinearGradient colors={["#0b0b0f", "#0a0a12", "#050509"]} style={{ flex: 1 }}>
         <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
           <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
             <View style={styles.textContainer}>
