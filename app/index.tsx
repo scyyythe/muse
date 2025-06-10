@@ -1,4 +1,5 @@
-import { LinearGradient } from "expo-linear-gradient";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { darkColors, lightColors } from "@/themes/color";
 import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, StyleSheet, Text, View } from "react-native";
@@ -7,6 +8,9 @@ import Swiper from "react-native-web-swiper";
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const theme = useColorScheme();
+
+  const colors = theme === "dark" ? darkColors : lightColors;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -17,40 +21,40 @@ export default function WelcomeScreen() {
   }, [index]);
 
   return (
-    <View style={{ flex: 1 }}>
-      <LinearGradient colors={["#0b0b0f", "#0a0a12", "#050509"]} style={{ flex: 1 }}>
-        <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
-          <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
-            <View style={styles.textContainer}>
-              <Text style={styles.title}>Welcome to Muse</Text>
-              <Text style={styles.description}>
-                Discover artists, explore songs, and leave your thoughts through reviews.
-              </Text>
-            </View>
-          </Animated.View>
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
+        <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
+          <View style={styles.textContainer}>
+            <Text style={[styles.title, { color: colors.text }]}>Welcome to Muse</Text>
+            <Text style={[styles.description, { color: colors.subText }]}>
+              Discover artists, explore songs, and leave your thoughts through reviews.
+            </Text>
+          </View>
+        </Animated.View>
 
-          <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
-            <Image source={require("../assets/images/splash-icon.png")} style={styles.image} />
+        <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
+          <Image source={require("../assets/images/splash-icon.png")} style={styles.image} />
 
-            <View style={styles.centerContainer}>
-              <Text style={styles.titleCenter}>Getting Started</Text>
-              <Text style={styles.descriptionCenter}>Start discovering your {"\n"} favorite tunes</Text>
-              <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
-                <Text style={styles.buttonText}>Let's Go</Text>
-              </Pressable>
-            </View>
+          <View style={styles.centerContainer}>
+            <Text style={[styles.titleCenter, { color: colors.text }]}>Getting Started</Text>
+            <Text style={[styles.descriptionCenter, { color: colors.subText }]}>
+              Start discovering your {"\n"} favorite tunes
+            </Text>
+            <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
+              <Text style={[styles.buttonText, { color: colors.buttonText }]}>Let's Go</Text>
+            </Pressable>
+          </View>
 
-            <View style={styles.footer}>
-              <Text style={styles.logo}>MUSE</Text>
-              <Text style={styles.subLogo}>Music Vibes</Text>
-            </View>
-          </Animated.View>
-        </Swiper>
+          <View style={styles.footer}>
+            <Text style={[styles.logo, { color: colors.text }]}>MUSE</Text>
+            <Text style={[styles.subLogo, { color: colors.subText }]}>Music Vibes</Text>
+          </View>
+        </Animated.View>
+      </Swiper>
 
-        <View style={styles.indicatorWrapper}>
-          {[0, 1].map((i) => (index === i ? <View key={i} style={[styles.indicatorLine, styles.active]} /> : null))}
-        </View>
-      </LinearGradient>
+      <View style={styles.indicatorWrapper}>
+        {[0, 1].map((i) => (index === i ? <View key={i} style={[styles.indicatorLine, styles.active]} /> : null))}
+      </View>
     </View>
   );
 }
@@ -96,7 +100,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: "left",
     alignSelf: "flex-start",
-    color: "#ffffff",
   },
   description: {
     fontSize: 16,
@@ -112,14 +115,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 5,
     textAlign: "center",
-    color: "#ffffff",
   },
   descriptionCenter: {
     fontSize: 16,
     fontFamily: "Poppins_400Regular",
     textAlign: "center",
     lineHeight: 25,
-
     color: "#94a3b8",
   },
   signWith: {
