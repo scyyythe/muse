@@ -1,11 +1,13 @@
+import Input from "@/components/fields/Input";
+import Label from "@/components/fields/Label";
 import { Button } from "@react-navigation/elements";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-web-swiper";
-
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={{ flex: 1 }}>
       <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
@@ -26,12 +28,27 @@ export default function WelcomeScreen() {
         </View>
 
         <View style={styles.page}>
-          <Text style={styles.title}>Join Us</Text>
-          <Text style={styles.description}>Log in or register now to start your musical journey with Muse.</Text>
+          <View style={styles.upperContainer}>
+            <Text style={styles.title}>Muse</Text>
+            <Text style={styles.title}>Welcome back!</Text>
+            <Text style={styles.description}>Log in now to start your musical journey with Muse.</Text>
+          </View>
 
+          <View style={styles.InputContainer}>
+            <Label>Email</Label>
+            <Input placeholder="Enter your email" value={email} onChangeText={setEmail} keyboardType="email-address" />
+
+            <Label style={{ marginTop: 16 }}>Password</Label>
+            <Input
+              placeholder="Enter your password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={true}
+            />
+          </View>
           <View style={styles.buttonContainer}>
             <Button variant="filled" color="black">
-              Create an account
+              Sign In
             </Button>
             <View style={styles.IconsContainer}>
               <Text style={styles.signWith}> or sign in with </Text>
@@ -73,7 +90,12 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 40,
   },
-
+  upperContainer: {
+    borderStyle: "solid",
+    borderColor: "#ccc",
+    textAlign: "center",
+    width: "100%",
+  },
   indicatorWrapper: {
     flexDirection: "row",
     justifyContent: "center",
@@ -163,6 +185,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   IconsContainer: {
+    marginTop: 20,
+  },
+  InputContainer: {
+    width: "100%",
     marginTop: 20,
   },
 });
