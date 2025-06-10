@@ -59,7 +59,11 @@ export default function LoginScreen({ navigation }: Props) {
       secureTextEntry={!showPassword}
     />
     <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)} style={styles.eyeIcon}>
-      <Ionicons name={showPassword ? "eye-off" : "eye"} size={24} color="#999" />
+      <Ionicons name={showPassword ? "eye-off" : "eye"} size={18} color="#999" style={
+        {
+          marginTop:5
+        }
+      } />
     </TouchableOpacity>
   </View>
 

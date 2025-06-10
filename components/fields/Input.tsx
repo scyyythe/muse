@@ -16,13 +16,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderColor: "#ccc",
     borderWidth: 1,
-    fontSize: 16,
+    fontSize: 13,
     color: "#333",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 1,
+    fontFamily: "Poppins_400Regular",
   },
 });
 

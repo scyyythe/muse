@@ -6,14 +6,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
-    Image,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function RegisterScreen() {
@@ -64,7 +64,11 @@ export default function RegisterScreen() {
                 secureTextEntry={!showPassword}
               />
               <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)} style={styles.eyeIcon}>
-                <Ionicons name={showPassword ? "eye-off" : "eye"} size={24} color="#999" />
+                <Ionicons name={showPassword ? "eye-off" : "eye"} size={18} color="#999" style={
+                       {
+                         marginTop:5
+                       }
+                     } />
               </TouchableOpacity>
             </View>
 
