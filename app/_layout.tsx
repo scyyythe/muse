@@ -25,7 +25,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" />
 
         {/* Main App */}
-        <Stack.Screen name="(tabs)" />
+        {/* <Stack.Screen name="(tabs)" /> */}
 
         {/* 404 fallback */}
         <Stack.Screen name="+not-found" />

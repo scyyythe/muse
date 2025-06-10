@@ -15,7 +15,7 @@ const Label: React.FC<LabelProps> = ({ children, style, ...props }) => {
 
 const styles = StyleSheet.create({
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "Poppins_400Regular",
     textAlign: "left",
     lineHeight: 25,
