@@ -1,50 +1,52 @@
-# Welcome to your Expo app 👋
+🎨 Welcome to Muse App 👋
+Muse is a cross-platform mobile application built with Expo, designed to deliver a seamless creative experience. This project was bootstrapped using create-expo-app.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+🚀 Getting Started
+1. Install Dependencies
+bash
+Copy
+Edit
+npm install
+2. Start the App
+bash
+Copy
+Edit
+npx expo start
+You’ll be prompted with options to launch the app in:
 
-## Get started
+A development build
 
-1. Install dependencies
+An Android emulator
 
-   ```bash
-   npm install
-   ```
+An iOS simulator
 
-2. Start the app
+Expo Go – a quick way to preview your app on a physical device
 
-   ```bash
-   npx expo start
-   ```
+🗂 Project Structure
+Your main development work happens inside the app/ directory, using file-based routing for screens and navigation.
 
-In the output, you'll find options to open the app in a
+♻️ Reset to a Fresh Project
+To start fresh:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
+bash
+Copy
+Edit
 npm run reset-project
-```
+This will move the current code into the app-example/ directory and create a blank app/ directory ready for new development.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+📚 Learn More
+Here are some helpful resources for working with Expo:
 
-## Learn more
+📖 Expo Documentation
 
-To learn more about developing your project with Expo, look at the following resources:
+🎓 Learn Expo Tutorial
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+🧪 API References
 
-## Join the community
+🌐 Join the Community
+Connect with other developers and contribute to the platform:
 
-Join our community of developers creating universal apps.
+💬 Expo Discord
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+🧑‍💻 Expo GitHub
+
