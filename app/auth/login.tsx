@@ -65,9 +65,10 @@ export default function LoginScreen({ navigation }: Props) {
 
 
   <View style={styles.forgotPasswordContainer}>
-    <TouchableOpacity >
-      <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-    </TouchableOpacity>
+    <TouchableOpacity onPress={() => router.push("/auth/ForgotPassword")}>
+  <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+</TouchableOpacity>
+
   </View>
 </View>
 
