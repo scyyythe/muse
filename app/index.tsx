@@ -1,6 +1,5 @@
-import { LoginScreenNavigationProp } from "@/types/navigation";
 import { LinearGradient } from "expo-linear-gradient";
-import { router, useNavigation } from "expo-router";
+import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-web-swiper";
@@ -8,7 +7,7 @@ import Swiper from "react-native-web-swiper";
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const navigation = useNavigation<LoginScreenNavigationProp>();
+  
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -34,12 +33,13 @@ export default function WelcomeScreen() {
           <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
             <Image source={require("../assets/images/splash-icon.png")} style={styles.image} />
 
-            <Text style={styles.titleCenter}>Getting Started</Text>
+<View style={styles.centerContainer}>   <Text style={styles.titleCenter}>Getting Started</Text>
             <Text style={styles.descriptionCenter}>Start discovering your {"\n"} favorite tunes</Text>
 
             <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
               <Text style={styles.buttonText}>Let's Go</Text>
-            </Pressable>
+            </Pressable></View>
+         
 
             <View style={styles.footer}>
               <Text style={styles.logo}>MUSE</Text>
@@ -70,9 +70,14 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginBottom: 30,
+    position:"absolute",
+    top:100,
+  },
+  centerContainer:{
+    marginTop:80,
   },
   upperContainer: {
-    borderStyle: "solid",
+ 
     borderColor: "#ccc",
     textAlign: "center",
     width: "100%",
@@ -108,9 +113,9 @@ const styles = StyleSheet.create({
   titleCenter: {
     fontSize: 26,
     fontFamily: "Poppins_700Bold",
-    marginBottom: 10,
+    marginTop:20,
+    marginBottom: 5,
     textAlign: "center",
-
     color: "#ffffff",
   },
   descriptionCenter: {

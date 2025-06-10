@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     textAlign: "left",
     lineHeight: 25,
+    color:'#ffffff',
   },
 });
 
