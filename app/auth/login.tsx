@@ -1,5 +1,6 @@
 import Input from "@/components/fields/Input";
 import Label from "@/components/fields/Label";
+import { useThemeColor } from "@/hooks/useThemeColor";
 import { LoginScreenNavigationProp } from "@/types/navigation";
 import { Ionicons } from "@expo/vector-icons";
 import { Button } from "@react-navigation/elements";
@@ -23,6 +24,10 @@ export default function LoginScreen({ navigation }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const textColor = useThemeColor({}, "text");
+  const subText = useThemeColor({}, "subText");
+
   const handleLogin = () => {
     router.push("/(tabs)");
   };
@@ -31,13 +36,15 @@ export default function LoginScreen({ navigation }: Props) {
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30 }}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.push("/")}>
-            <Ionicons name="arrow-back" size={15} color="#ffffff" />
+            <Ionicons name="arrow-back" size={15} style={[{ color: textColor }]} />
           </TouchableOpacity>
         </View>
 
         <View style={styles.upperContainer}>
-          <Text style={styles.logo}>MUSE</Text>
-          <Text style={styles.description}>Log in now to start your musical{"\n"}journey with Muse.</Text>
+          <Text style={[styles.logo, { color: textColor }]}>MUSE</Text>
+          <Text style={[styles.description, { color: subText }]}>
+            Log in now to start your musical{"\n"}journey with Muse.
+          </Text>
         </View>
 
         <View style={styles.InputContainer}>
@@ -66,7 +73,7 @@ export default function LoginScreen({ navigation }: Props) {
 
           <View style={styles.forgotPasswordContainer}>
             <TouchableOpacity onPress={() => router.push("/auth/ForgotPassword")}>
-              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+              <Text style={[styles.forgotPasswordText, { color: subText }]}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -76,7 +83,7 @@ export default function LoginScreen({ navigation }: Props) {
         </Button>
 
         <View style={styles.IconsContainer}>
-          <Text style={styles.signWith}>or sign in with</Text>
+          <Text style={[styles.signWith, { color: subText }]}>or sign in with</Text>
           <View style={styles.socialContainer}>
             <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
             <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
@@ -84,7 +91,7 @@ export default function LoginScreen({ navigation }: Props) {
           </View>
         </View>
 
-        <Text style={styles.signInPrompt}>
+        <Text style={[styles.signInPrompt, { color: subText }]}>
           Don’t have an account?
           <Text style={styles.signInLink} onPress={() => router.push("/auth/register")}>
             Register

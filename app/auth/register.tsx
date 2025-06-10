@@ -1,5 +1,6 @@
 import Input from "@/components/fields/Input";
 import Label from "@/components/fields/Label";
+import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { Button } from "@react-navigation/elements";
 import { router } from "expo-router";
@@ -22,19 +23,24 @@ export default function RegisterScreen() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const textColor = useThemeColor({}, "text");
+  const subText = useThemeColor({}, "subText");
+
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30 }}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={15} color="#ffffff" />
+            <Ionicons name="arrow-back" size={15} style={[{ color: textColor }]} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Sign In</Text>
+          <Text style={[styles.headerTitle, { color: textColor }]}>Sign In</Text>
         </View>
 
         <View style={styles.upperContainer}>
-          <Text style={styles.logo}>MUSE</Text>
-          <Text style={styles.description}>Create an account to begin your{"\n"}musical journey with Muse.</Text>
+          <Text style={[styles.logo, { color: textColor }]}>MUSE</Text>
+          <Text style={[styles.description, { color: subText }]}>
+            Create an account to begin your{"\n"}musical journey with Muse.
+          </Text>
         </View>
 
         <View style={styles.InputContainer}>
@@ -78,7 +84,7 @@ export default function RegisterScreen() {
         </Button>
 
         <View style={styles.IconsContainer}>
-          <Text style={styles.signWith}>or sign up with</Text>
+          <Text style={[styles.signWith, { color: subText }]}>or sign up with</Text>
           <View style={styles.socialContainer}>
             <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
             <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
@@ -86,7 +92,7 @@ export default function RegisterScreen() {
           </View>
         </View>
 
-        <Text style={styles.signInPrompt}>
+        <Text style={[styles.signInPrompt, { color: subText }]}>
           Already have an account?{" "}
           <Text style={styles.signInLink} onPress={() => router.push("/auth/login")}>
             Login

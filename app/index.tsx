@@ -1,5 +1,4 @@
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { darkColors, lightColors } from "@/themes/color";
+import { useThemeColor } from "@/hooks/useThemeColor";
 import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, StyleSheet, Text, View } from "react-native";
@@ -8,9 +7,10 @@ import Swiper from "react-native-web-swiper";
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const theme = useColorScheme();
 
-  const colors = theme === "dark" ? darkColors : lightColors;
+  const textColor = useThemeColor({}, "text");
+  const subText = useThemeColor({}, "subText");
+  const buttonText = useThemeColor({}, "buttonText");
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -21,12 +21,12 @@ export default function WelcomeScreen() {
   }, [index]);
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
+    <View style={{ flex: 1 }}>
       <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>
         <Animated.View style={[styles.page, { opacity: fadeAnim }]}>
           <View style={styles.textContainer}>
-            <Text style={[styles.title, { color: colors.text }]}>Welcome to Muse</Text>
-            <Text style={[styles.description, { color: colors.subText }]}>
+            <Text style={[styles.title, { color: textColor }]}>Welcome to Muse</Text>
+            <Text style={[styles.description, { color: subText }]}>
               Discover artists, explore songs, and leave your thoughts through reviews.
             </Text>
           </View>
@@ -36,18 +36,18 @@ export default function WelcomeScreen() {
           <Image source={require("../assets/images/splash-icon.png")} style={styles.image} />
 
           <View style={styles.centerContainer}>
-            <Text style={[styles.titleCenter, { color: colors.text }]}>Getting Started</Text>
-            <Text style={[styles.descriptionCenter, { color: colors.subText }]}>
+            <Text style={[styles.titleCenter, { color: textColor }]}>Getting Started</Text>
+            <Text style={[styles.descriptionCenter, { color: subText }]}>
               Start discovering your {"\n"} favorite tunes
             </Text>
             <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
-              <Text style={[styles.buttonText, { color: colors.buttonText }]}>Let's Go</Text>
+              <Text style={[styles.buttonText, { color: buttonText }]}>Let's Go</Text>
             </Pressable>
           </View>
 
           <View style={styles.footer}>
-            <Text style={[styles.logo, { color: colors.text }]}>MUSE</Text>
-            <Text style={[styles.subLogo, { color: colors.subText }]}>Music Vibes</Text>
+            <Text style={[styles.logo, { color: textColor }]}>MUSE</Text>
+            <Text style={[styles.subLogo, { color: subText }]}>Music Vibes</Text>
           </View>
         </Animated.View>
       </Swiper>
