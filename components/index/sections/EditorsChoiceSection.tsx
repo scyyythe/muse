@@ -13,6 +13,7 @@ type EditorsChoiceSectionProps = {
   items: EditorsChoiceItem[];
   textColor?: string;
   subText?: string;
+  border?: string;
   backgroundColor?: string;
   title?: string;
   onSeeAllPress?: () => void;
@@ -22,6 +23,7 @@ export default function EditorsChoiceSection({
   items,
   textColor,
   subText,
+  border,
   backgroundColor,
   title = "Editor's Choice",
   onSeeAllPress,
@@ -67,6 +69,7 @@ export default function EditorsChoiceSection({
             textColor={textColor}
             subText={subText}
             backgroundColor={backgroundColor}
+            border={border}
           />
         ))}
       </ScrollView>

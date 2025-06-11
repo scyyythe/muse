@@ -8,6 +8,7 @@ type EditorsChoiceCardProps = {
   textColor?: string;
   subText?: string;
   backgroundColor?: string;
+  border?: string;
 };
 
 export default function EditorsChoiceCard({
@@ -16,6 +17,7 @@ export default function EditorsChoiceCard({
   image,
   textColor,
   subText,
+  border,
   backgroundColor,
 }: EditorsChoiceCardProps) {
   return (
@@ -26,9 +28,12 @@ export default function EditorsChoiceCard({
         borderRadius: 16,
         backgroundColor: backgroundColor,
         shadowColor: "#000",
-        shadowOpacity: 0.05,
-        shadowRadius: 4,
-        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        shadowOffset: { width: 0, height: 4 },
+        elevation: 4,
+        borderWidth: 1,
+        borderColor: border,
         overflow: "hidden",
       }}
     >

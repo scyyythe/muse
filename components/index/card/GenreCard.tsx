@@ -1,14 +1,15 @@
 import React from "react";
 import { Image, Text, TouchableOpacity } from "react-native";
 
-export type GenreCardProps = {
+type GenreCardProps = {
   name: string;
   image: string;
   onPress?: () => void;
   textColor?: string;
   backgroundColor?: string;
   border?: string;
-  reviewCount?: number;
+  reviewCount: number;
+  subText?: string;
 };
 
 export default function GenreCard({
@@ -18,6 +19,7 @@ export default function GenreCard({
   textColor,
   backgroundColor,
   border,
+  subText,
   reviewCount,
 }: GenreCardProps) {
   return (
@@ -26,17 +28,15 @@ export default function GenreCard({
       style={{
         backgroundColor,
         borderRadius: 16,
-        margin: 8,
-        paddingVertical: 24,
-        paddingHorizontal: 16,
+        margin: 10,
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "#000",
         shadowOpacity: 0.05,
         shadowRadius: 8,
         elevation: 3,
-        width: 170,
-        height: 180,
+        width: 160,
+        height: 150,
         borderWidth: 1,
         borderColor: border,
       }}
@@ -44,8 +44,8 @@ export default function GenreCard({
       <Image
         source={{ uri: image }}
         style={{
-          width: 56,
-          height: 56,
+          width: 60,
+          height: 60,
           borderRadius: 12,
           marginBottom: 10,
         }}
@@ -53,8 +53,8 @@ export default function GenreCard({
       />
       <Text
         style={{
-          fontSize: 16,
-          fontFamily: "Poppins_600SemiBold",
+          fontSize: 14,
+          fontFamily: "Poppins_500Medium",
           color: textColor,
         }}
       >
@@ -68,7 +68,8 @@ export default function GenreCard({
           marginTop: 4,
         }}
       >
-        {reviewCount?.toLocaleString()} reviews
+        {reviewCount >= 1000 ? `${(reviewCount / 1000).toFixed(reviewCount % 1000 === 0 ? 0 : 1)}k` : reviewCount}{" "}
+        reviews
       </Text>
     </TouchableOpacity>
   );
