@@ -54,7 +54,9 @@ const topReview = {
     "Lana’s latest track blends cinematic melancholy with haunting vocals. It’s a masterclass in mood and emotion—pure Lana at her finest.",
   author: "vinylpoet",
   image: "https://2.bp.blogspot.com/-TT3fH7RHRzk/VoxXzb1OumI/AAAAAAAAB90/WnIKe5dQENw/s1600/Honeymoon+Review.png",
+  rating: 5.0,
 };
+
   return (
     <View
       style={{
@@ -138,7 +140,7 @@ const topReview = {
       </View>
 
 <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
-<TopReviewsSection review={topReview} textColor={textColor} subText={subText} />
+<TopReviewsSection review={topReview} />
 <AlbumRecommendations  artistName="Lana Del Rey" albums={theWeekndAlbums}/>
     </View>
   );
