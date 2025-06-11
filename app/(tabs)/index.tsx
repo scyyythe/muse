@@ -1,4 +1,5 @@
 import trendingItems from "@/components/index/data/trendingItems";
+import TopReviewsSection from "@/components/index/TopReviewsSection";
 import TrendingSection from "@/components/index/TrendingSection";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -19,6 +20,13 @@ export default function Dashboard() {
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+const topReview = {
+  title: "“Lana Del Rey is in Her Element”",
+  content:
+    "Lana’s latest track blends cinematic melancholy with haunting vocals. It’s a masterclass in mood and emotion—pure Lana at her finest.",
+  author: "vinylpoet",
+  image: "https://2.bp.blogspot.com/-TT3fH7RHRzk/VoxXzb1OumI/AAAAAAAAB90/WnIKe5dQENw/s1600/Honeymoon+Review.png",
+};
   return (
     <View
       style={{
@@ -102,7 +110,7 @@ export default function Dashboard() {
       </View>
 
 <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
-
+<TopReviewsSection review={topReview} textColor={textColor} subText={subText} />
     </View>
   );
 }
