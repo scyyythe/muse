@@ -2,38 +2,29 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Tabs } from "expo-router";
 import React from "react";
-import { ViewStyle } from "react-native";
+import { View, ViewStyle } from "react-native";
 
 export default function TabLayout() {
   const textColor = useThemeColor({}, "text");
-
+  const backgroundColor = useThemeColor({}, "background");
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: true,
         tabBarActiveTintColor: "#7f5af0",
-        tabBarInactiveTintColor: "black",
+        tabBarInactiveTintColor: textColor,
         tabBarLabelStyle: {
           fontSize: 13,
+          fontFamily: "Poppins_500Medium",
         },
         tabBarStyle: {
-          position: "absolute",
-          bottom: 40,
-          left: 20,
-          right: 20,
-          elevation: 5,
-          backgroundColor: "#fff",
-          borderRadius: 20,
-          height: 70,
-          paddingBottom: 10,
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 10,
-          },
-          shadowOpacity: 0.1,
-          shadowRadius:10,
+          backgroundColor: backgroundColor,
+          height: 90,
+          paddingBottom: 20,
+          paddingTop: 10,
+          borderTopWidth: 0.3,
+          borderTopColor: "#ccc",
         } as ViewStyle,
       }}
     >
@@ -41,28 +32,72 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => <IconSymbol size={20} name="house.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? "#eae6fb" : "transparent",
+                padding: 6,
+                marginBottom: 5,
+                borderRadius: 12,
+              }}
+            >
+              <IconSymbol size={focused ? 22 : 20} name="house.fill" color={color} />
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: "Explore",
-          tabBarIcon: ({ color }) => <IconSymbol size={20} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? "#eae6fb" : "transparent",
+                padding: 6,
+                borderRadius: 12,
+                marginBottom: 5,
+              }}
+            >
+              <IconSymbol size={focused ? 22 : 20} name="paperplane.fill" color={color} />
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
         name="reviews"
         options={{
           title: "My Reviews",
-          tabBarIcon: ({ color }) => <IconSymbol size={20} name="text.bubble.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? "#eae6fb" : "transparent",
+                padding: 6,
+                borderRadius: 12,
+                marginBottom: 5,
+              }}
+            >
+              <IconSymbol size={focused ? 22 : 20} name="text.bubble.fill" color={color} />
+            </View>
+          ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => <IconSymbol size={20} name="gearshape.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? "#eae6fb" : "transparent",
+                padding: 6,
+                borderRadius: 12,
+                marginBottom: 5,
+              }}
+            >
+              <IconSymbol size={focused ? 22 : 20} name="gearshape.fill" color={color} />
+            </View>
+          ),
         }}
       />
     </Tabs>

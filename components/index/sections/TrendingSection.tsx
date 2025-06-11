@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
 import TrendingMusicCard from "../card/TrendingMusicCard";
@@ -25,12 +24,12 @@ export default function TrendingSection({
   title = "Trending Music",
 }: TrendingSectionProps) {
   return (
-    <View style={{ marginVertical: 16 }}>
+    <View style={{ marginVertical: 10 }}>
       <Text
         style={{
           fontSize: 18,
           fontFamily: "Poppins_700Bold",
-          marginBottom: 12,
+          marginBottom: 20,
           color: textColor,
         }}
       >
@@ -39,13 +38,7 @@ export default function TrendingSection({
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {items.map((item) => (
-          <TrendingMusicCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            image={item.image}
-            rating={item.rating}
-          />
+          <TrendingMusicCard key={item.id} id={item.id} title={item.title} image={item.image} rating={item.rating} />
         ))}
       </ScrollView>
     </View>

@@ -1,24 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Animated,
-  Dimensions,
-  FlatList,
-  Image,
-  Text,
-  View,
-} from "react-native";
+import { Animated, Dimensions, FlatList, Image, Text, View } from "react-native";
 
 type Album = {
   id: number;
   title: string;
   image: string;
+  type: string;
+  genre: string;
+  year: number;
 };
 
 type AlbumRecommendationsProps = {
   artistName: string;
   albums: Album[];
   textColor?: string;
-  subText?: string;
+  subTextColor?: string;
 };
 
 const { width } = Dimensions.get("window");
@@ -28,13 +24,22 @@ const ITEM_SPACING = (width - ITEM_WIDTH) / 2;
 export default function AlbumRecommendations({
   artistName,
   albums,
-  textColor = "black",
-  subText = "gray",
+  textColor,
+  subTextColor,
 }: AlbumRecommendationsProps) {
   const scrollX = useRef(new Animated.Value(0)).current;
   const flatListRef = useRef<FlatList>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    // Center the first item on mount
+    setTimeout(() => {
+      flatListRef.current?.scrollToIndex({
+        index: 0,
+        animated: false,
+      });
+    }, 10);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,7 +61,7 @@ export default function AlbumRecommendations({
           color: textColor,
         }}
       >
-        Recommended Albums by {artistName}
+        Music by {artistName}
       </Text>
 
       <Animated.FlatList
@@ -68,19 +73,17 @@ export default function AlbumRecommendations({
         snapToInterval={ITEM_WIDTH}
         decelerationRate="fast"
         bounces={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: true }
-        )}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], { useNativeDriver: true })}
         contentContainerStyle={{
           paddingHorizontal: ITEM_SPACING,
         }}
+        getItemLayout={(_, index) => ({
+          length: ITEM_WIDTH,
+          offset: ITEM_WIDTH * index,
+          index,
+        })}
         renderItem={({ item, index }) => {
-          const inputRange = [
-            (index - 1) * ITEM_WIDTH,
-            index * ITEM_WIDTH,
-            (index + 1) * ITEM_WIDTH,
-          ];
+          const inputRange = [(index - 1) * ITEM_WIDTH, index * ITEM_WIDTH, (index + 1) * ITEM_WIDTH];
 
           const scale = scrollX.interpolate({
             inputRange,
@@ -109,19 +112,35 @@ export default function AlbumRecommendations({
                   width: "100%",
                   height: 200,
                   borderRadius: 16,
-                  marginBottom: 12,
+                  marginBottom: 10,
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 6 },
+                  shadowOpacity: 0.15,
+                  shadowRadius: 8,
                 }}
               />
               <Text
                 style={{
-                  fontSize: 14,
-                  fontFamily: "Poppins_600SemiBold",
+                  fontSize: 16,
+                  fontFamily: "Poppins_700Bold",
                   color: textColor,
                   textAlign: "center",
                 }}
                 numberOfLines={1}
               >
                 {item.title}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontFamily: "Poppins_400Regular",
+                  color: subTextColor,
+                  textAlign: "center",
+                  marginTop: 4,
+                }}
+                numberOfLines={1}
+              >
+                {item.type} • {item.genre} • {item.year}
               </Text>
             </Animated.View>
           );

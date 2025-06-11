@@ -13,23 +13,43 @@ type TopReview = {
 
 type TopReviewsSectionProps = {
   review: TopReview;
+  textColor?: string;
+
+  subText?: string;
 };
 
-export default function TopReviewsSection({
-  review,
-}: TopReviewsSectionProps) {
+export default function TopReviewsSection({ review, textColor }: TopReviewsSectionProps) {
   return (
-    <View style={{ marginTop: 24 }}>
-      <Text
+    <View style={{ marginTop: 0 }}>
+      <View
         style={{
-          fontSize: 18,
-          fontFamily: "Poppins_700Bold",
+          marginTop: 0,
           marginBottom: 12,
-          color: "black",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        Highlights
-      </Text>
+        <Text
+          style={{
+            fontSize: 18,
+            fontFamily: "Poppins_700Bold",
+            color: textColor,
+          }}
+        >
+          Highlights
+        </Text>
+
+        <Text
+          style={{
+            fontSize: 15,
+            fontFamily: "Poppins_500Medium",
+            color: textColor,
+          }}
+        >
+          See all
+        </Text>
+      </View>
 
       <View style={{ borderRadius: 16, overflow: "hidden" }}>
         <Image
@@ -55,7 +75,6 @@ export default function TopReviewsSection({
             backgroundColor: "rgba(0, 0, 0, 0.4)",
           }}
         >
-
           {review.rating !== undefined && (
             <View
               style={{
