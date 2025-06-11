@@ -60,7 +60,7 @@ export default function EditorsChoiceSection({
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {items.map((item) => (
+        {items.slice(0, 2).map((item) => (
           <EditorsChoiceCard
             key={item.id}
             title={item.title}

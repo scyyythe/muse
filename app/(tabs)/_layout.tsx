@@ -12,19 +12,32 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarActiveTintColor: "#7f5af0",
+        tabBarActiveTintColor: "red",
         tabBarInactiveTintColor: textColor,
+        tabBarItemStyle: {
+          paddingHorizontal: 8,
+        },
         tabBarLabelStyle: {
-          fontSize: 13,
+          fontSize: 12,
           fontFamily: "Poppins_500Medium",
+          marginTop: 5,
         },
         tabBarStyle: {
+          position: "absolute",
+          bottom: 20,
+          left: 60,
+          right: 60,
           backgroundColor: backgroundColor,
-          height: 90,
-          paddingBottom: 20,
-          paddingTop: 10,
-          borderTopWidth: 0.3,
-          borderTopColor: "#ccc",
+          borderRadius: 24,
+          height: 75,
+          paddingBottom: 10,
+          paddingTop: 12,
+          borderTopWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 5 },
+          shadowOpacity: 0.1,
+          shadowRadius: 10,
+          elevation: 10,
         } as ViewStyle,
       }}
     >
@@ -41,7 +54,7 @@ export default function TabLayout() {
                 borderRadius: 12,
               }}
             >
-              <IconSymbol size={focused ? 22 : 20} name="house.fill" color={color} />
+              <IconSymbol size={focused ? 25 : 22} name="house.fill" color={color} />
             </View>
           ),
         }}
@@ -59,7 +72,7 @@ export default function TabLayout() {
                 marginBottom: 5,
               }}
             >
-              <IconSymbol size={focused ? 22 : 20} name="paperplane.fill" color={color} />
+              <IconSymbol size={focused ? 25 : 22} name="paperplane.fill" color={color} />
             </View>
           ),
         }}
@@ -77,7 +90,7 @@ export default function TabLayout() {
                 marginBottom: 5,
               }}
             >
-              <IconSymbol size={focused ? 22 : 20} name="text.bubble.fill" color={color} />
+              <IconSymbol size={focused ? 25 : 22} name="text.bubble.fill" color={color} />
             </View>
           ),
         }}
@@ -95,7 +108,7 @@ export default function TabLayout() {
                 marginBottom: 5,
               }}
             >
-              <IconSymbol size={focused ? 22 : 20} name="gearshape.fill" color={color} />
+              <IconSymbol size={focused ? 25 : 22} name="gearshape.fill" color={color} />
             </View>
           ),
         }}

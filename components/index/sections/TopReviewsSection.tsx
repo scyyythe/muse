@@ -10,17 +10,20 @@ type TopReview = {
   image: string;
   rating?: number;
 };
-
 type TopReviewsSectionProps = {
-  review: TopReview;
+  review: TopReview[]; // still an array
   textColor?: string;
-
   subText?: string;
 };
 
 export default function TopReviewsSection({ review, textColor, subText }: TopReviewsSectionProps) {
+  const top = review[0]; // Pick the first item
+
+  if (!top) return null; // Return nothing if no review
+
   return (
     <View style={{ marginTop: 0 }}>
+      {/* Header */}
       <View
         style={{
           marginTop: 10,
@@ -39,7 +42,6 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
         >
           Highlights
         </Text>
-
         <Text
           style={{
             fontSize: 15,
@@ -51,9 +53,10 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
         </Text>
       </View>
 
+      {/* Review Card */}
       <View style={{ borderRadius: 16, overflow: "hidden" }}>
         <Image
-          source={{ uri: review.image }}
+          source={{ uri: top.image }}
           style={{
             width: "100%",
             height: 400,
@@ -75,7 +78,7 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
             backgroundColor: "rgba(0, 0, 0, 0.4)",
           }}
         >
-          {review.rating !== undefined && (
+          {top.rating !== undefined && (
             <View
               style={{
                 position: "absolute",
@@ -97,7 +100,7 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
                   marginRight: 4,
                 }}
               >
-                {review.rating.toFixed(1)}
+                {top.rating.toFixed(1)}
               </Text>
               <Ionicons name="star" size={14} color="white" />
             </View>
@@ -111,7 +114,7 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
               marginBottom: 6,
             }}
           >
-            {review.title}
+            {top.title}
           </Text>
 
           <Text
@@ -119,15 +122,15 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
               fontSize: 12,
               fontFamily: "Poppins_400Regular",
               color: "#dddddd",
-              marginBottom: review.author ? 6 : 0,
+              marginBottom: top.author ? 6 : 0,
               lineHeight: 20,
             }}
             numberOfLines={3}
           >
-            {review.content}
+            {top.content}
           </Text>
 
-          {review.author && (
+          {top.author && (
             <Text
               style={{
                 fontSize: 12,
@@ -135,7 +138,7 @@ export default function TopReviewsSection({ review, textColor, subText }: TopRev
                 color: "#bbb",
               }}
             >
-              — {review.author}
+              — {top.author}
             </Text>
           )}
         </BlurView>

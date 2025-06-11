@@ -18,7 +18,7 @@ export const jennieAlbums = [
   },
   {
     id: 3,
-    title: "One of the Girls (feat. Lily-Rose Depp, The Weeknd)",
+    title: "One of the Girls",
     image: "https://i.scdn.co/image/ab67616d0000b273b0dd6a5cd1dec96c4119c262",
     type: "Soundtrack",
     genre: "R&B / Alt-Pop",
