@@ -1,4 +1,5 @@
 import trendingItems from "@/components/index/data/trendingItems";
+import AlbumRecommendations from "@/components/index/sections/AlbumRecommendations";
 import TopReviewsSection from "@/components/index/sections/TopReviewsSection";
 import TrendingSection from "@/components/index/sections/TrendingSection";
 import { Ionicons } from "@expo/vector-icons";
@@ -19,6 +20,33 @@ export default function Dashboard() {
   const filteredItems = trendingItems.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+const theWeekndAlbums = [
+  {
+    id: 1,
+    title: "After Hours",
+    image: "https://wallpapers.com/images/hd/the-weeknd-after-hours-3000-x-3000-wallpaper-yocnnl0wdmg9ewo8.jpg",
+  },
+  {
+    id: 2,
+    title: "Starboy",
+    image: "https://tse3.mm.bing.net/th?id=OIP.BSmyhb0CGW1S-WcdfEFS6gHaHa&pid=Api&P=0&h=220",
+  },
+  {
+    id: 3,
+    title: "Dawn FM",
+    image: "https://tse4.mm.bing.net/th?id=OIP.Pa4GciEbi4Uz5qBJrdfYrQHaHa&pid=Api&P=0&h=220",
+  },
+   {
+    id: 4,
+    title: "Dawn FM",
+    image: "https://tse1.mm.bing.net/th?id=OIP.4uhzA4dmQBwBPLMoKWYZUgHaHa&pid=Api&P=0&h=220",
+  },
+   {
+    id: 5,
+    title: "The Hills",
+    image: "https://tse2.mm.bing.net/th?id=OIP.EKRYJ_wyMVobCapG7r4EsAAAAA&pid=Api&P=0&h=220",
+  },
+];
 
 const topReview = {
   title: "“Lana Del Rey is in Her Element”",
@@ -36,7 +64,7 @@ const topReview = {
         paddingHorizontal: 20,
       }}
     >
-      {/* Header */}
+  
       <View
         style={{
           flexDirection: "row",
@@ -111,6 +139,7 @@ const topReview = {
 
 <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
 <TopReviewsSection review={topReview} textColor={textColor} subText={subText} />
+<AlbumRecommendations  artistName="Lana Del Rey" albums={theWeekndAlbums}/>
     </View>
   );
 }
