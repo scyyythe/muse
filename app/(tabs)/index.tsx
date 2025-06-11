@@ -1,5 +1,7 @@
 import trendingItems from "@/components/index/data/trendingItems";
 import AlbumRecommendations from "@/components/index/sections/AlbumRecommendations";
+import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
+import GenreGrid from "@/components/index/sections/GenreGrid";
 import TopReviewsSection from "@/components/index/sections/TopReviewsSection";
 import TrendingSection from "@/components/index/sections/TrendingSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -7,67 +9,90 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
-
 export default function Dashboard() {
-  // const textColor = "black";
   const subText = useThemeColor({}, "subText");
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
+  const border = useThemeColor({}, "border");
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredItems = trendingItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
-  const theWeekndAlbums = [
+  const jennieAlbums = [
     {
       id: 1,
-      title: "After Hours",
-      image: "https://wallpapers.com/images/hd/the-weeknd-after-hours-3000-x-3000-wallpaper-yocnnl0wdmg9ewo8.jpg",
-      type: "Album",
-      genre: "R&B",
-      year: 2020,
+      title: "You & Me",
+      image:
+        "https://blackpink.cafe/wp-content/uploads/2023/10/blackpink-231006-jennie-you-and-me-official-photo-1.jpg",
+      type: "Single",
+      genre: "Pop",
+      year: 2023,
     },
     {
       id: 2,
-      title: "Starboy",
-      image: "https://tse3.mm.bing.net/th?id=OIP.BSmyhb0CGW1S-WcdfEFS6gHaHa&pid=Api&P=0&h=220",
-      type: "Album",
-      genre: "Pop",
-      year: 2016,
+      title: "Solo",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BOGZkNzM3OWUtMTcyZC00MjY3LTgwNmYtNmU4OWUxNDQ1OTYyXkEyXkFqcGc@._V1_.jpg",
+      type: "Single",
+      genre: "K-Pop",
+      year: 2018,
     },
     {
       id: 3,
-      title: "Dawn FM",
-      image: "https://tse4.mm.bing.net/th?id=OIP.Pa4GciEbi4Uz5qBJrdfYrQHaHa&pid=Api&P=0&h=220",
-      type: "Album",
-      genre: "Synth-pop",
-      year: 2022,
+      title: "One of the Girls (feat. Lily-Rose Depp, The Weeknd)",
+      image: "https://i.scdn.co/image/ab67616d0000b273b0dd6a5cd1dec96c4119c262",
+      type: "Soundtrack",
+      genre: "R&B / Alt-Pop",
+      year: 2023,
     },
     {
       id: 4,
-      title: "Dawn FM (Alternate)",
-      image: "https://tse1.mm.bing.net/th?id=OIP.4uhzA4dmQBwBPLMoKWYZUgHaHa&pid=Api&P=0&h=220",
-      type: "Album",
-      genre: "Synth-pop",
-      year: 2022,
+      title: "Seoul City",
+      image: "https://i.scdn.co/image/ab67616d0000b2735a43918ea90bf1e44b7bdcfd",
+      type: "Single",
+      genre: "Pop",
+      year: 2024,
     },
     {
       id: 5,
-      title: "The Hills",
-      image: "https://tse2.mm.bing.net/th?id=OIP.EKRYJ_wyMVobCapG7r4EsAAAAA&pid=Api&P=0&h=220",
+      title: "Damn Right",
+      image:
+        "https://imgx.sonora.id/crop/0x0:0x0/x/photo/2025/03/07/lirik-lagu-damn-right-jennie-bla-20250307082532.jpg",
       type: "Single",
-      genre: "Alternative R&B",
-      year: 2015,
+      genre: "Hip-Hop",
+      year: 2024,
     },
   ];
-
+  const editorPicks = [
+    {
+      id: 1,
+      title: "Jennie",
+      subtitle: "Viral track ‘Seoul City’ now trending worldwide",
+      image: "https://i.scdn.co/image/ab67616d0000b2735a0c2870f4f309e382d1fad6",
+    },
+    {
+      id: 2,
+      title: "Jennie",
+      subtitle: "‘Damn Right’ is climbing global charts fast",
+      image: "https://i.scdn.co/image/ab67616d0000b2735a0c2870f4f309e382d1fad6",
+    },
+  ];
   const topReview = {
-    title: "“Lana Del Rey is in Her Element”",
+    title: "“Chase Atlantic Pushes Boundaries Again”",
     content:
-      "Lana’s latest track blends cinematic melancholy with haunting vocals. It’s a masterclass in mood and emotion—pure Lana at her finest.",
-    author: "vinylpoet",
-    image: "https://2.bp.blogspot.com/-TT3fH7RHRzk/VoxXzb1OumI/AAAAAAAAB90/WnIKe5dQENw/s1600/Honeymoon+Review.png",
-    rating: 5.0,
+      "Chase Atlantic’s latest release is a genre-blending ride through dark pop, R&B, and alternative rock. Their moody production and emotional lyricism hit harder than ever — a sonic high worth repeating.",
+    author: "audioghost",
+    image: "https://i.scdn.co/image/ab67616d0000b2735a0c2870f4f309e382d1fad6",
+    rating: 4.8,
   };
+
+  const genres = [
+    { id: 1, name: "Pop", image: "https://i.ibb.co/ZYW3VTp/brown-brim.png", reviewCount: 15000 },
+    { id: 2, name: "Hip-Hop", image: "https://i.ibb.co/ypkgK0X/blue-beanie.png", reviewCount: 12000 },
+    { id: 3, name: "R&B", image: "https://i.ibb.co/QdJwgmp/brown-cowboy.png", reviewCount: 8000 },
+    { id: 4, name: "K-Pop", image: "https://i.ibb.co/R70vBrQ/green-beanie.png", reviewCount: 9500 },
+  ];
 
   return (
     <ScrollView>
@@ -144,15 +169,22 @@ export default function Dashboard() {
             }}
           />
         </View>
-
-        <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
-        <TopReviewsSection review={topReview} textColor={textColor} subText={subText} />
-        <AlbumRecommendations
-          artistName="The Weekend"
-          albums={theWeekndAlbums}
+        <EditorsChoiceSection
+          items={editorPicks}
           textColor={textColor}
-          subTextColor={subText}
+          subText={subText}
+          backgroundColor={backgroundColor}
         />
+        <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
+        <GenreGrid
+          genres={genres}
+          onPressGenre={(genre) => console.log("Tapped:", genre.name)}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          border={border}
+        />
+        <TopReviewsSection review={topReview} textColor={textColor} subText={subText} />
+        <AlbumRecommendations artistName="Jennie" albums={jennieAlbums} textColor={textColor} subTextColor={subText} />
       </Animatable.View>
     </ScrollView>
   );

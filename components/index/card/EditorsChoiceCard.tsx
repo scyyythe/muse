@@ -1,0 +1,68 @@
+import React from "react";
+import { Image, Text, View } from "react-native";
+
+type EditorsChoiceCardProps = {
+  title: string;
+  subtitle: string;
+  image: string;
+  textColor?: string;
+  subText?: string;
+  backgroundColor?: string;
+};
+
+export default function EditorsChoiceCard({
+  title,
+  subtitle,
+  image,
+  textColor,
+  subText,
+  backgroundColor,
+}: EditorsChoiceCardProps) {
+  return (
+    <View
+      style={{
+        width: 180,
+        marginRight: 16,
+        borderRadius: 16,
+        backgroundColor: backgroundColor,
+        shadowColor: "#000",
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        shadowOffset: { width: 0, height: 2 },
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        source={{ uri: image }}
+        style={{
+          width: "100%",
+          height: 120,
+        }}
+        resizeMode="cover"
+      />
+      <View style={{ padding: 10 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Poppins_700Bold",
+            color: textColor,
+          }}
+          numberOfLines={1}
+        >
+          {title}
+        </Text>
+        <Text
+          style={{
+            fontSize: 12,
+            fontFamily: "Poppins_400Regular",
+            color: subText,
+            marginTop: 4,
+          }}
+          numberOfLines={2}
+        >
+          {subtitle}
+        </Text>
+      </View>
+    </View>
+  );
+}

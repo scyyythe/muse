@@ -12,6 +12,7 @@ export default function WelcomeScreen() {
   const backgroundColor = useThemeColor({}, "background");
   const subText = useThemeColor({}, "subText");
   const buttonText = useThemeColor({}, "buttonText");
+
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,

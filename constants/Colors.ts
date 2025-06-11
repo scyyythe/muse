@@ -13,6 +13,7 @@ export const Colors = {
     tabIconSelected: tintColorLight,
     subText: "#64748b",
     buttonText: "#ffffff",
+    border: "rgba(0, 0, 0, 0.1)",
   },
   dark: {
     text: "#ffffff",
@@ -23,5 +24,6 @@ export const Colors = {
     tabIconSelected: tintColorDark,
     subText: "#94a3b8",
     buttonText: "#ffffff",
+    border: "rgba(255, 255, 255, 0.1)",
   },
 };

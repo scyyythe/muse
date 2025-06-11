@@ -47,7 +47,7 @@ const trendingItems = [
     id: 5,
     title: "Fishtail",
     type: "Recently Reviewed",
-    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=100&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMALbgFe7U78RB_5sERapMBgUmBC5KaZmLaA&s",
     rating: "★ 4.8",
     artist: "Lana Del Rey",
     description: "Moody and ambient, this track flows with dreamy vocals and hypnotic rhythms.",

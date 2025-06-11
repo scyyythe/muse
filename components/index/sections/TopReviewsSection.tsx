@@ -18,13 +18,13 @@ type TopReviewsSectionProps = {
   subText?: string;
 };
 
-export default function TopReviewsSection({ review, textColor }: TopReviewsSectionProps) {
+export default function TopReviewsSection({ review, textColor, subText }: TopReviewsSectionProps) {
   return (
     <View style={{ marginTop: 0 }}>
       <View
         style={{
-          marginTop: 0,
-          marginBottom: 12,
+          marginTop: 10,
+          marginBottom: 18,
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
@@ -44,7 +44,7 @@ export default function TopReviewsSection({ review, textColor }: TopReviewsSecti
           style={{
             fontSize: 15,
             fontFamily: "Poppins_500Medium",
-            color: textColor,
+            color: subText,
           }}
         >
           See all
