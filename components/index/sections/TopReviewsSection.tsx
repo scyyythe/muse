@@ -29,7 +29,7 @@ export default function TopReviewsSection({
           color: textColor,
         }}
       >
-        Top Review Today
+        Highlights
       </Text>
 
       <View

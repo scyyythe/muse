@@ -1,6 +1,6 @@
 import trendingItems from "@/components/index/data/trendingItems";
-import TopReviewsSection from "@/components/index/TopReviewsSection";
-import TrendingSection from "@/components/index/TrendingSection";
+import TopReviewsSection from "@/components/index/sections/TopReviewsSection";
+import TrendingSection from "@/components/index/sections/TrendingSection";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import {
