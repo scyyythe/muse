@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
-    Animated,
-    Dimensions,
-    FlatList,
-    Image,
-    Text,
-    View,
+  Animated,
+  Dimensions,
+  FlatList,
+  Image,
+  Text,
+  View,
 } from "react-native";
 
 type Album = {
@@ -35,7 +35,7 @@ export default function AlbumRecommendations({
   const flatListRef = useRef<FlatList>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-scroll every 3 seconds
+
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % albums.length;

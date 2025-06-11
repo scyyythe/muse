@@ -4,7 +4,7 @@ import TopReviewsSection from "@/components/index/sections/TopReviewsSection";
 import TrendingSection from "@/components/index/sections/TrendingSection";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
 export default function Dashboard() {
@@ -55,6 +55,7 @@ export default function Dashboard() {
   };
 
   return (
+       <ScrollView>
     <Animatable.View
       animation="fadeInUp"
       duration={600}
@@ -66,6 +67,7 @@ export default function Dashboard() {
         paddingHorizontal: 20,
       }}
     >
+   
       <View
         style={{
           flexDirection: "row",
@@ -144,7 +146,10 @@ export default function Dashboard() {
         subText={subText}
       />
       <TopReviewsSection review={topReview} />
-      <AlbumRecommendations artistName="Lana Del Rey" albums={theWeekndAlbums} />
+      <AlbumRecommendations artistName="The Weekend" albums={theWeekndAlbums} />
+      
     </Animatable.View>
+      </ScrollView>
+  
   );
 }
