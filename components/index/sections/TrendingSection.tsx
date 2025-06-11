@@ -17,12 +17,7 @@ type TrendingSectionProps = {
   title?: string;
 };
 
-export default function TrendingSection({
-  items,
-  textColor = "black",
-  subText = "gray",
-  title = "Trending Music",
-}: TrendingSectionProps) {
+export default function TrendingSection({ items, textColor, subText, title = "Trending Music" }: TrendingSectionProps) {
   return (
     <View style={{ marginVertical: 10 }}>
       <Text

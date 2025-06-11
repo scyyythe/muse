@@ -1,11 +1,13 @@
 import { jennieAlbums } from "@/components/index/data/albums";
 import { editorPicks } from "@/components/index/data/editorsPicks";
 import { genres } from "@/components/index/data/genres";
+import { latestReviews } from "@/components/index/data/latestReviews";
 import { topReviews } from "@/components/index/data/topReviews";
 import trendingItems from "@/components/index/data/trendingItems";
 import AlbumRecommendations from "@/components/index/sections/AlbumRecommendations";
 import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
 import GenreGrid from "@/components/index/sections/GenreGrid";
+import LatestReviewsSection from "@/components/index/sections/LatestReviewsSection";
 import TopReviewsSection from "@/components/index/sections/TopReviewsSection";
 import TrendingSection from "@/components/index/sections/TrendingSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -117,6 +119,7 @@ export default function Dashboard() {
         />
 
         <TopReviewsSection review={topReviews} textColor={textColor} subText={subText} />
+        <LatestReviewsSection reviews={latestReviews} textColor={textColor} backgroundColor={backgroundColor} />
         <AlbumRecommendations artistName="Jennie" albums={jennieAlbums} textColor={textColor} subTextColor={subText} />
       </Animatable.View>
     </ScrollView>

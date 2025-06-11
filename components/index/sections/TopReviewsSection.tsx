@@ -11,13 +11,13 @@ type TopReview = {
   rating?: number;
 };
 type TopReviewsSectionProps = {
-  review: TopReview[]; // still an array
+  review: TopReview[];
   textColor?: string;
   subText?: string;
 };
 
 export default function TopReviewsSection({ review, textColor, subText }: TopReviewsSectionProps) {
-  const top = review[0]; // Pick the first item
+  const top = review[0];
 
   if (!top) return null; // Return nothing if no review
 
