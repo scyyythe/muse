@@ -9,6 +9,7 @@ type Props = {
   border?: string;
   onPressViewAll?: () => void;
   subText?: string;
+  cardBackgroundColor?: string;
 };
 
 export default function LatestReviewsSection({
@@ -18,6 +19,7 @@ export default function LatestReviewsSection({
   border,
   onPressViewAll,
   subText,
+  cardBackgroundColor,
 }: Props) {
   return (
     <View style={{ marginTop: 30 }}>
@@ -45,7 +47,13 @@ export default function LatestReviewsSection({
         data={reviews.slice(0, 3)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <LatestReviewCard review={item} textColor={textColor} backgroundColor={backgroundColor} border={border} />
+          <LatestReviewCard
+            review={item}
+            textColor={textColor}
+            backgroundColor={backgroundColor}
+            border={border}
+            cardBackgroundColor={cardBackgroundColor}
+          />
         )}
         scrollEnabled={false}
         showsVerticalScrollIndicator={false}

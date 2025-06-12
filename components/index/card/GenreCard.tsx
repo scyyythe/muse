@@ -10,6 +10,7 @@ type GenreCardProps = {
   border?: string;
   reviewCount: number;
   subText?: string;
+  cardBackgroundColor?: string;
 };
 
 export default function GenreCard({
@@ -21,12 +22,12 @@ export default function GenreCard({
   border,
   subText,
   reviewCount,
+  cardBackgroundColor,
 }: GenreCardProps) {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={{
-        backgroundColor,
         borderRadius: 16,
         margin: 10,
         alignItems: "center",
@@ -39,6 +40,7 @@ export default function GenreCard({
         height: 150,
         borderWidth: 1,
         borderColor: border,
+        backgroundColor: cardBackgroundColor,
       }}
     >
       <Image

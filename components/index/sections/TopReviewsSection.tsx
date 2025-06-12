@@ -14,13 +14,13 @@ type TopReviewsSectionProps = {
   review: TopReview[];
   textColor?: string;
   subText?: string;
+  cardBackgroundColor?: string;
 };
 
-export default function TopReviewsSection({ review, textColor, subText }: TopReviewsSectionProps) {
+export default function TopReviewsSection({ review, textColor, subText, cardBackgroundColor }: TopReviewsSectionProps) {
   const top = review[0];
 
-  if (!top) return null; // Return nothing if no review
-
+  if (!top) return null;
   return (
     <View style={{ marginTop: 0 }}>
       {/* Header */}

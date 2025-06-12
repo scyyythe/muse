@@ -1,3 +1,4 @@
+import ExploreCategoryGrid from "@/components/explore/sections/ExploreCategoryGrid";
 import artistCarouselData from "@/components/index/data/index/artistCarouselData";
 import { editorPicks } from "@/components/index/data/index/editorsPicks";
 import { genres } from "@/components/index/data/index/genres";
@@ -125,6 +126,11 @@ export default function Dashboard() {
             }}
           />
         </View>
+        <ExploreCategoryGrid
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          cardBackgroundColor={cardBackgroundColor}
+        />
         <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
         <GenreGrid
           genres={genres}

@@ -164,14 +164,21 @@ export default function Dashboard() {
           backgroundColor={backgroundColor}
           border={border}
           subText={subText}
+          cardBackgroundColor={cardBackgroundColor}
         />
 
-        <TopReviewsSection review={topReviews} textColor={textColor} subText={subText} />
+        <TopReviewsSection
+          review={topReviews}
+          textColor={textColor}
+          subText={subText}
+          cardBackgroundColor={cardBackgroundColor}
+        />
         <LatestReviewsSection
           reviews={latestReviews}
           textColor={textColor}
           backgroundColor={backgroundColor}
           border={border}
+          cardBackgroundColor={cardBackgroundColor}
         />
         <AlbumRecommendations artistName="Jennie" albums={jennieAlbums} textColor={textColor} subTextColor={subText} />
         <ArtistCarouselSection artists={artistCarouselData} textColor={textColor} />

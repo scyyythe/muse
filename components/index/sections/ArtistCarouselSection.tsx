@@ -21,7 +21,7 @@ export default function ArtistCarouselSection({
   title = "Featured Artists",
 }: ArtistCarouselSectionProps) {
   return (
-    <View style={{ marginVertical: 10 }}>
+    <View style={{ marginVertical: 10, paddingBottom: 50 }}>
       <Text
         style={{
           fontSize: 18,

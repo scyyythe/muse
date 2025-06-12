@@ -13,6 +13,7 @@ export type LatestReview = {
   backgroundColor?: string;
   textColor?: string;
   border?: string;
+  cardBackgroundColor?: string;
 };
 
 type Props = {
@@ -20,14 +21,15 @@ type Props = {
   textColor?: string;
   backgroundColor?: string;
   border?: string;
+  cardBackgroundColor?: string;
 };
 
-export default function LatestReviewCard({ review, textColor, backgroundColor, border }: Props) {
+export default function LatestReviewCard({ review, textColor, backgroundColor, border, cardBackgroundColor }: Props) {
   return (
     <View
       style={{
         flexDirection: "row",
-        backgroundColor: backgroundColor ?? "#fff",
+        backgroundColor: cardBackgroundColor ?? "#fff",
         borderRadius: 16,
         marginBottom: 16,
         shadowColor: "#000",

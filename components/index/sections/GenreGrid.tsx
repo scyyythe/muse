@@ -17,6 +17,7 @@ type GenreGridProps = {
   backgroundColor?: string;
   border?: string;
   onPressViewAll?: () => void;
+  cardBackgroundColor?: string;
 };
 
 const numColumns = 2;
@@ -30,6 +31,7 @@ export default function GenreGrid({
   backgroundColor,
   border,
   onPressViewAll,
+  cardBackgroundColor,
 }: GenreGridProps) {
   const renderItem = ({ item }: { item: Genre }) => (
     <View style={{ width: "50%" }}>
@@ -41,6 +43,7 @@ export default function GenreGrid({
         backgroundColor={backgroundColor}
         border={border}
         reviewCount={item.reviewCount}
+        cardBackgroundColor={cardBackgroundColor}
       />
     </View>
   );

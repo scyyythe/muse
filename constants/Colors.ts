@@ -14,7 +14,7 @@ export const Colors = {
     buttonText: "#ffffff",
     button: museRed,
     border: "rgba(0, 0, 0, 0.1)",
-    cardBackground: "#f9fafb",
+    cardBackground: "#f4f4f5",
   },
   dark: {
     text: "#ffffff",
@@ -27,6 +27,6 @@ export const Colors = {
     buttonText: "#ffffff",
     button: museRed,
     border: "rgba(255, 255, 255, 0.1)",
-    cardBackground: "#1f2937",
+    cardBackground: "#1F1F1F",
   },
 };
