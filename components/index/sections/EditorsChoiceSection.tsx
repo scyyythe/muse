@@ -1,7 +1,7 @@
+import { router } from "expo-router";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import EditorsChoiceCard from "../card/EditorsChoiceCard";
-
 type EditorsChoiceItem = {
   id: number;
   title: string;
@@ -47,16 +47,17 @@ export default function EditorsChoiceSection({
         >
           {title}
         </Text>
-
-        <Text
-          style={{
-            fontSize: 13,
-            fontFamily: "Poppins_500Medium",
-            color: subText,
-          }}
-        >
-          See All
-        </Text>
+        <TouchableOpacity onPress={() => router.push("/display/editors-picks/index")} style={{ marginBottom: 12 }}>
+          <Text
+            style={{
+              fontSize: 13,
+              fontFamily: "Poppins_500Medium",
+              color: subText,
+            }}
+          >
+            See All
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>

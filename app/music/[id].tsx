@@ -1,9 +1,8 @@
-import trendingItems from "@/components/index/data/index/trendingItems";
-import { Ionicons } from "@expo/vector-icons";
+import trendingItems from "@/components/data/index/trendingItems";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, ScrollView, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
-
+import Header from "../header";
 const { width } = Dimensions.get("window");
 
 export default function MusicDetailPage() {
@@ -30,24 +29,9 @@ export default function MusicDetailPage() {
   }
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "#fff" }} contentContainerStyle={{ padding: 20 }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "#fff" }} contentContainerStyle={{ paddingTop: 70, padding: 20 }}>
       <Animatable.View animation="fadeInUp" duration={500} delay={50}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 16,
-          }}
-        >
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={20} color={textColor} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
-            <Ionicons name="ellipsis-vertical" size={20} color={textColor} />
-          </TouchableOpacity>
-        </View>
-
+        <Header title="Music" textColor={textColor} />
         <Image
           source={{ uri: item.image }}
           style={{
