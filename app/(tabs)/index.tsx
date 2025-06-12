@@ -22,7 +22,7 @@ export default function Dashboard() {
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
   const border = useThemeColor({}, "border");
-
+  const cardBackgroundColor = useThemeColor({}, "cardBackground");
   const [searchQuery, setSearchQuery] = useState("");
   const filteredItems = trendingItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
 

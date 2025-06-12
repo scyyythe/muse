@@ -23,8 +23,8 @@ export default function EditorsChoiceCard({
   return (
     <View
       style={{
-        width: 180,
-        marginRight: 16,
+        width: 178,
+        marginRight: 17,
         borderRadius: 16,
         backgroundColor: backgroundColor,
         shadowColor: "#000",

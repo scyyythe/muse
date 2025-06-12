@@ -1,5 +1,3 @@
-// constants/Colors.ts
-
 const tintColorLight = "#0a7ea4";
 const tintColorDark = "#fff";
 
@@ -14,6 +12,7 @@ export const Colors = {
     subText: "#64748b",
     buttonText: "#ffffff",
     border: "rgba(0, 0, 0, 0.1)",
+    cardBackground: "#f9fafb",
   },
   dark: {
     text: "#ffffff",
@@ -25,5 +24,6 @@ export const Colors = {
     subText: "#94a3b8",
     buttonText: "#ffffff",
     border: "rgba(255, 255, 255, 0.1)",
+    cardBackground: "#1f2937",
   },
 };
