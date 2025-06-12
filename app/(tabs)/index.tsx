@@ -1,10 +1,12 @@
 import { jennieAlbums } from "@/components/index/data/index/albums";
+import artistCarouselData from "@/components/index/data/index/artistCarouselData";
 import { editorPicks } from "@/components/index/data/index/editorsPicks";
 import { genres } from "@/components/index/data/index/genres";
 import { latestReviews } from "@/components/index/data/index/latestReviews";
 import { topReviews } from "@/components/index/data/index/topReviews";
 import trendingItems from "@/components/index/data/index/trendingItems";
 import AlbumRecommendations from "@/components/index/sections/AlbumRecommendations";
+import ArtistCarouselSection from "@/components/index/sections/ArtistCarouselSection";
 import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
 import GenreGrid from "@/components/index/sections/GenreGrid";
 import LatestReviewsSection from "@/components/index/sections/LatestReviewsSection";
@@ -126,6 +128,7 @@ export default function Dashboard() {
           border={border}
         />
         <AlbumRecommendations artistName="Jennie" albums={jennieAlbums} textColor={textColor} subTextColor={subText} />
+        <ArtistCarouselSection artists={artistCarouselData} textColor={textColor} />
       </Animatable.View>
     </ScrollView>
   );

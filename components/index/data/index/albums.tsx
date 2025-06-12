@@ -9,9 +9,8 @@ export const jennieAlbums = [
   },
   {
     id: 2,
-    title: "Solo",
-    image:
-      "https://m.media-amazon.com/images/M/MV5BOGZkNzM3OWUtMTcyZC00MjY3LTgwNmYtNmU4OWUxNDQ1OTYyXkEyXkFqcGc@._V1_.jpg",
+    title: "like Jennie",
+    image: "https://cdn-images.dzcdn.net/images/cover/ce85489f7e932c98d07c1bc24610508a/0x1900-000000-80-0-0.jpg",
     type: "Single",
     genre: "K-Pop",
     year: 2018,

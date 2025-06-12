@@ -7,30 +7,49 @@ type Props = {
   textColor?: string;
   backgroundColor?: string;
   border?: string;
+  onPressViewAll?: () => void;
+  subText?: string;
 };
 
-export default function LatestReviewsSection({ reviews, textColor, backgroundColor, border }: Props) {
+export default function LatestReviewsSection({
+  reviews,
+  textColor,
+  backgroundColor,
+  border,
+  onPressViewAll,
+  subText,
+}: Props) {
   return (
     <View style={{ marginTop: 30 }}>
-      <Text
+      {/* Header */}
+      <View
         style={{
-          fontSize: 18,
-          fontFamily: "Poppins_700Bold",
-          marginBottom: 10,
-          color: textColor ?? "#000",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 12,
         }}
       >
-        Latest Reviews
-      </Text>
+        <Text
+          style={{
+            fontSize: 18,
+            fontFamily: "Poppins_700Bold",
+            color: textColor ?? "#000",
+          }}
+        >
+          Latest Reviews
+        </Text>
+      </View>
 
       <FlatList
-        data={reviews}
+        data={reviews.slice(0, 3)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <LatestReviewCard review={item} textColor={textColor} backgroundColor={backgroundColor} border={border} />
         )}
+        scrollEnabled={false}
         showsVerticalScrollIndicator={false}
-        scrollEnabled={true}
+        contentContainerStyle={{ paddingBottom: 10 }}
       />
     </View>
   );

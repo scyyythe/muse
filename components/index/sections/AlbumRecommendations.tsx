@@ -52,7 +52,7 @@ export default function AlbumRecommendations({
   }, [currentIndex, albums.length]);
 
   return (
-    <View style={{ marginTop: 24 }}>
+    <View>
       <Text
         style={{
           fontSize: 18,
@@ -61,7 +61,7 @@ export default function AlbumRecommendations({
           color: textColor,
         }}
       >
-        Music by {artistName}
+        {artistName}'s Latest Drop 🔥
       </Text>
 
       <Animated.FlatList
