@@ -63,6 +63,7 @@ export default function EditorsChoiceSection({
         {items.slice(0, 2).map((item) => (
           <EditorsChoiceCard
             key={item.id}
+            id={item.id}
             title={item.title}
             subtitle={item.subtitle}
             image={item.image}
