@@ -1,7 +1,7 @@
 export const myReviewData = [
   {
     id: "1",
-    image: "https://upload.wikimedia.org/wikipedia/en/5/51/Kendrick_Lamar_-_DAMN.png",
+    image: "https://i.scdn.co/image/ab67616d00001e028b52c6b9bc4e43d873869699",
     title: "DAMN.",
     artist: "Kendrick Lamar",
     rating: 4.5,
@@ -12,7 +12,7 @@ export const myReviewData = [
   },
   {
     id: "2",
-    image: "https://upload.wikimedia.org/wikipedia/en/a/a0/Taylor_Swift_-_1989.png",
+    image: "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
     title: "1989",
     artist: "Taylor Swift",
     rating: 4.0,
@@ -23,7 +23,7 @@ export const myReviewData = [
   },
   {
     id: "3",
-    image: "https://upload.wikimedia.org/wikipedia/en/f/f6/Billie_Eilish_-_Happier_Than_Ever.png",
+    image: "https://i.scdn.co/image/ab67616d0000b2732a038d3bf875d23e4aeaa84e",
     title: "Happier Than Ever",
     artist: "Billie Eilish",
     rating: 3.5,
@@ -34,7 +34,7 @@ export const myReviewData = [
   },
   {
     id: "4",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/0b/The_Weeknd_-_After_Hours.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq0-Ag-ielgyxuKbY0UgUKFvG8pBtJPbFmuw&s",
     title: "After Hours",
     artist: "The Weeknd",
     rating: 4.2,
@@ -45,7 +45,7 @@ export const myReviewData = [
   },
   {
     id: "5",
-    image: "https://upload.wikimedia.org/wikipedia/en/4/45/Adele_-_30.png",
+    image: "https://i.scdn.co/image/ab67616d0000b2733db461e4695adea2d45fe934",
     title: "30",
     artist: "Adele",
     rating: 4.7,
@@ -56,7 +56,7 @@ export const myReviewData = [
   },
   {
     id: "6",
-    image: "https://upload.wikimedia.org/wikipedia/en/b/b5/Olivia_Rodrigo_-_SOUR.png",
+    image: "https://pbs.twimg.com/media/GNuqz2mWIAAXdl4.jpg",
     title: "SOUR",
     artist: "Olivia Rodrigo",
     rating: 3.8,
@@ -67,7 +67,7 @@ export const myReviewData = [
   },
   {
     id: "7",
-    image: "https://upload.wikimedia.org/wikipedia/en/c/c3/Frank_Ocean_-_Blonde.png",
+    image: "https://i.scdn.co/image/ab67616d0000b273c5649add07ed3720be9d5526",
     title: "Blonde",
     artist: "Frank Ocean",
     rating: 5.0,
@@ -78,7 +78,7 @@ export const myReviewData = [
   },
   {
     id: "8",
-    image: "https://upload.wikimedia.org/wikipedia/en/e/e4/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
+    image: "https://i.scdn.co/image/ab67616d0000b2734bc66095f8a70bc4e6593f4f",
     title: "Future Nostalgia",
     artist: "Dua Lipa",
     rating: 4.1,
@@ -89,7 +89,7 @@ export const myReviewData = [
   },
   {
     id: "9",
-    image: "https://upload.wikimedia.org/wikipedia/en/2/22/Lorde_-_Melodrama.png",
+    image: "https://i.scdn.co/image/ab67616d00001e0275083e2519d18ee196df3558",
     title: "Melodrama",
     artist: "Lorde",
     rating: 4.4,
@@ -100,7 +100,7 @@ export const myReviewData = [
   },
   {
     id: "10",
-    image: "https://upload.wikimedia.org/wikipedia/en/d/d4/SZA_-_SOS.png",
+    image: "https://i.scdn.co/image/ab67616d0000b27370dbc9f47669d120ad874ec1",
     title: "SOS",
     artist: "SZA",
     rating: 4.6,

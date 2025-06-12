@@ -38,7 +38,7 @@ export default function MyReviewCard({
 
   const goToDetail = () => {
     router.push({
-      pathname: "/music/[id]",
+      pathname: "/my_review/[id]",
       params: { id: id.toString() },
     });
   };
@@ -52,17 +52,17 @@ export default function MyReviewCard({
   };
 
   return (
-    <Pressable onPress={goToDetail} onLongPress={showActions}>
-      <View
-        style={{
-          backgroundColor: cardBackgroundColor,
-          borderRadius: 16,
-          padding: 16,
-          marginBottom: 16,
-          flexDirection: "row",
-          gap: 12,
-        }}
-      >
+    <View
+      style={{
+        backgroundColor: cardBackgroundColor,
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 16,
+        flexDirection: "row",
+        gap: 12,
+      }}
+    >
+      <Pressable onPress={goToDetail} onLongPress={showActions} style={{ flexDirection: "row", gap: 12, flex: 1 }}>
         <Image source={{ uri: image }} style={{ width: 60, height: 60, borderRadius: 8 }} />
         <View style={{ flex: 1 }}>
           <Text style={{ fontFamily: "Poppins_600SemiBold", color: textColor, fontSize: 14 }}>
@@ -90,13 +90,13 @@ export default function MyReviewCard({
             <Text style={{ fontSize: 12, color: textColor }}>💬 {comments}</Text>
           </View>
         </View>
+      </Pressable>
 
-        {(onEdit || onDelete) && (
-          <Pressable onPress={showActions}>
-            <Ionicons name="ellipsis-vertical" size={15} color={textColor} />
-          </Pressable>
-        )}
-      </View>
-    </Pressable>
+      {(onEdit || onDelete) && (
+        <Pressable onPress={showActions} hitSlop={8}>
+          <Ionicons name="ellipsis-vertical" size={15} color={textColor} />
+        </Pressable>
+      )}
+    </View>
   );
 }

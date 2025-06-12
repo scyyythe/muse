@@ -15,7 +15,9 @@ export default function Dashboard() {
   const button = useThemeColor({}, "button");
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
   const [filter, setFilter] = useState("All");
-  const filteredData = [...myReviewData].sort((a, b) => {
+  const [reviews, setReviews] = useState(myReviewData);
+
+  const filteredData = [...reviews].sort((a, b) => {
     switch (filter) {
       case "Highest Rated":
         return b.rating - a.rating;
@@ -29,6 +31,7 @@ export default function Dashboard() {
         return 0;
     }
   });
+
   return (
     <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
       <Animatable.View
