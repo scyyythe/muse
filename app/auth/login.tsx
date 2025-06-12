@@ -78,7 +78,7 @@ export default function LoginScreen({ navigation }: Props) {
           </View>
         </View>
 
-        <Button color="#7f5af0" onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
+        <Button color="#D72638" onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
           Sign In
         </Button>
 
@@ -92,7 +92,7 @@ export default function LoginScreen({ navigation }: Props) {
         </View>
 
         <Text style={[styles.signInPrompt, { color: subText }]}>
-          Don’t have an account?
+          Don’t have an account?{" "}
           <Text style={styles.signInLink} onPress={() => router.push("/auth/register")}>
             Register
           </Text>
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   signInLink: {
     fontSize: 13,
     fontFamily: "Poppins_400Regular",
-    color: "#7f5af0",
+    color: "#D72638",
   },
   socialContainer: {
     flexDirection: "row",

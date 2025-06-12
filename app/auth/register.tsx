@@ -79,7 +79,7 @@ export default function RegisterScreen() {
           />
         </View>
 
-        <Button color="#7f5af0" variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
+        <Button color="#D72638" variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
           Create Account
         </Button>
 
@@ -181,6 +181,6 @@ const styles = StyleSheet.create({
   signInLink: {
     fontSize: 13,
     fontFamily: "Poppins_400Regular",
-    color: "#7f5af0",
+    color: "#D72638",
   },
 });
