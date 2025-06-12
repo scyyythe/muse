@@ -12,7 +12,14 @@ export default function MyReviewsSection({ textColor, cardBackgroundColor, revie
   return (
     <View>
       {reviews.map((review) => (
-        <MyReviewCard key={review.id} {...review} textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
+        <MyReviewCard
+          key={review.id}
+          {...review}
+          textColor={textColor}
+          cardBackgroundColor={cardBackgroundColor}
+          onEdit={() => console.log("Edit", review.id)}
+          onDelete={() => console.log("Delete", review.id)}
+        />
       ))}
     </View>
   );
