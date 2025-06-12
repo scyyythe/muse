@@ -26,10 +26,6 @@ export default function EditorsPicksGrid() {
             marginBottom: 20,
             flexDirection: "row",
             alignItems: "center",
-            shadowColor: "#000",
-            shadowOpacity: 0.1,
-            shadowRadius: 10,
-            elevation: 5,
           }}
         >
           <Image
