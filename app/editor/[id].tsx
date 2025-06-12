@@ -73,9 +73,10 @@ export default function EditorDetailScreen() {
       </View>
 
       {/* See More Navigation Text */}
-      <TouchableOpacity onPress={() => router.push("/display/editors-picks/index")} style={{ marginBottom: 12 }}>
+      <TouchableOpacity onPress={() => router.push("/display/editors-picks")} style={{ marginBottom: 12 }}>
         <Text style={{ color: accent, fontSize: 14, fontFamily: "Poppins_500Medium" }}>See More Picks →</Text>
       </TouchableOpacity>
+
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {editorPicks
           .filter((item) => item.id.toString() !== id)

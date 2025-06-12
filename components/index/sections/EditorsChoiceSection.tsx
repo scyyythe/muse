@@ -47,7 +47,7 @@ export default function EditorsChoiceSection({
         >
           {title}
         </Text>
-        <TouchableOpacity onPress={() => router.push("/display/editors-picks/index")} style={{ marginBottom: 12 }}>
+        <TouchableOpacity onPress={() => router.push("/display/editors-picks")} style={{ marginBottom: 12 }}>
           <Text
             style={{
               fontSize: 13,
