@@ -1,34 +1,37 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import LatestReviewCard, { LatestReview } from "../card/LatestReviewCard";
+
 type Props = {
   reviews: LatestReview[];
   textColor?: string;
   backgroundColor?: string;
+  border?: string;
 };
 
-export default function LatestReviewsSection({ reviews, textColor, backgroundColor }: Props) {
+export default function LatestReviewsSection({ reviews, textColor, backgroundColor, border }: Props) {
   return (
     <View style={{ marginTop: 30 }}>
-      <Text style={{ fontSize: 18, fontFamily: "Poppins_700Bold", marginBottom: 10, color: textColor }}>
+      <Text
+        style={{
+          fontSize: 18,
+          fontFamily: "Poppins_700Bold",
+          marginBottom: 10,
+          color: textColor ?? "#000",
+        }}
+      >
         Latest Reviews
       </Text>
 
       <FlatList
         data={reviews}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <LatestReviewCard review={item} />}
-        scrollEnabled={false}
-        contentContainerStyle={{ paddingVertical: 10 }}
+        renderItem={({ item }) => (
+          <LatestReviewCard review={item} textColor={textColor} backgroundColor={backgroundColor} border={border} />
+        )}
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={true}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  heading: {
-    fontSize: 18,
-    fontFamily: "Poppins_700Bold",
-    marginBottom: 10,
-  },
-});

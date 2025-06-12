@@ -7,15 +7,15 @@ type CardProps = {
   image: string;
   title: string;
   rating: string;
+  textColor?: string;
 };
 
-export default function TrendingMusicCard({ id, image, title, rating }: CardProps) {
+export default function TrendingMusicCard({ id, image, title, rating, textColor }: CardProps) {
   const goToDetail = () => {
     router.push({
-  pathname: "/music/[id]",
-  params: { id: id.toString() },
-});
-
+      pathname: "/music/[id]",
+      params: { id: id.toString() },
+    });
   };
 
   return (
@@ -42,6 +42,7 @@ export default function TrendingMusicCard({ id, image, title, rating }: CardProp
           fontSize: 14,
           fontFamily: "Poppins_700Bold",
           textAlign: "center",
+          color: textColor,
         }}
         numberOfLines={1}
       >

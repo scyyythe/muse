@@ -1,9 +1,9 @@
-import { jennieAlbums } from "@/components/index/data/albums";
-import { editorPicks } from "@/components/index/data/editorsPicks";
-import { genres } from "@/components/index/data/genres";
-import { latestReviews } from "@/components/index/data/latestReviews";
-import { topReviews } from "@/components/index/data/topReviews";
-import trendingItems from "@/components/index/data/trendingItems";
+import { jennieAlbums } from "@/components/index/data/index/albums";
+import { editorPicks } from "@/components/index/data/index/editorsPicks";
+import { genres } from "@/components/index/data/index/genres";
+import { latestReviews } from "@/components/index/data/index/latestReviews";
+import { topReviews } from "@/components/index/data/index/topReviews";
+import trendingItems from "@/components/index/data/index/trendingItems";
 import AlbumRecommendations from "@/components/index/sections/AlbumRecommendations";
 import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
 import GenreGrid from "@/components/index/sections/GenreGrid";
@@ -119,7 +119,12 @@ export default function Dashboard() {
         />
 
         <TopReviewsSection review={topReviews} textColor={textColor} subText={subText} />
-        <LatestReviewsSection reviews={latestReviews} textColor={textColor} backgroundColor={backgroundColor} />
+        <LatestReviewsSection
+          reviews={latestReviews}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          border={border}
+        />
         <AlbumRecommendations artistName="Jennie" albums={jennieAlbums} textColor={textColor} subTextColor={subText} />
       </Animatable.View>
     </ScrollView>

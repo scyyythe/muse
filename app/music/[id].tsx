@@ -1,14 +1,7 @@
-import trendingItems from "@/components/index/data/trendingItems";
+import trendingItems from "@/components/index/data/index/trendingItems";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import {
-  Dimensions,
-  Image,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
 const { width } = Dimensions.get("window");
@@ -37,10 +30,7 @@ export default function MusicDetailPage() {
   }
 
   return (
-    <ScrollView
-      style={{ flex: 1, backgroundColor: "#fff" }}
-      contentContainerStyle={{ padding: 20 }}
-    >
+    <ScrollView style={{ flex: 1, backgroundColor: "#fff" }} contentContainerStyle={{ padding: 20 }}>
       <Animatable.View animation="fadeInUp" duration={500} delay={50}>
         <View
           style={{

@@ -33,7 +33,14 @@ export default function TrendingSection({ items, textColor, subText, title = "Tr
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {items.map((item) => (
-          <TrendingMusicCard key={item.id} id={item.id} title={item.title} image={item.image} rating={item.rating} />
+          <TrendingMusicCard
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            image={item.image}
+            rating={item.rating}
+            textColor={textColor}
+          />
         ))}
       </ScrollView>
     </View>
