@@ -1,4 +1,13 @@
+import artistCarouselData from "@/components/index/data/index/artistCarouselData";
+import { editorPicks } from "@/components/index/data/index/editorsPicks";
+import { genres } from "@/components/index/data/index/genres";
+import { latestReviews } from "@/components/index/data/index/latestReviews";
 import trendingItems from "@/components/index/data/index/trendingItems";
+import ArtistCarouselSection from "@/components/index/sections/ArtistCarouselSection";
+import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
+import GenreGrid from "@/components/index/sections/GenreGrid";
+import LatestReviewsSection from "@/components/index/sections/LatestReviewsSection";
+import TrendingSection from "@/components/index/sections/TrendingSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -116,6 +125,29 @@ export default function Dashboard() {
             }}
           />
         </View>
+        <TrendingSection items={filteredItems} textColor={textColor} subText={subText} />
+        <GenreGrid
+          genres={genres}
+          onPressGenre={(genre) => console.log("Explore Genre:", genre.name)}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          border={border}
+          subText={subText}
+        />
+        <ArtistCarouselSection artists={artistCarouselData} textColor={textColor} />
+        <LatestReviewsSection
+          reviews={latestReviews}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          border={border}
+        />
+        <EditorsChoiceSection
+          items={editorPicks}
+          textColor={textColor}
+          subText={subText}
+          backgroundColor={backgroundColor}
+          border={border}
+        />
       </Animatable.View>
     </ScrollView>
   );
