@@ -21,11 +21,13 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
-        {/* Main Tab App */}
+        {/* Login or Landing */}
+        <Stack.Screen name="index" />
+
+        {/* Tab Navigation */}
         <Stack.Screen name="(tabs)" />
 
-        {/* Extra screens outside tabs */}
-        <Stack.Screen name="display/editors-picks/index" />
+        {/* 404 fallback */}
         <Stack.Screen name="+not-found" />
       </Stack>
 
