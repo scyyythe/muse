@@ -1,13 +1,12 @@
 import ExploreCategoryGrid from "@/components/explore/sections/ExploreCategoryGrid";
+import MostControversialReviewsSection from "@/components/explore/sections/MostControversialReviewsSection";
 import ReviewSpotlightSection from "@/components/explore/sections/ReviewSpotlightSection";
 import TrendingReviewedAlbumsSection from "@/components/explore/sections/TrendingReviewedAlbumsSection";
 import artistCarouselData from "@/components/index/data/index/artistCarouselData";
 import { editorPicks } from "@/components/index/data/index/editorsPicks";
-import { latestReviews } from "@/components/index/data/index/latestReviews";
 import trendingItems from "@/components/index/data/index/trendingItems";
 import ArtistCarouselSection from "@/components/index/sections/ArtistCarouselSection";
 import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
-import LatestReviewsSection from "@/components/index/sections/LatestReviewsSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -132,13 +131,9 @@ export default function Dashboard() {
         />
         <TrendingReviewedAlbumsSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
         <ReviewSpotlightSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
+        <MostControversialReviewsSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
         <ArtistCarouselSection artists={artistCarouselData} textColor={textColor} />
-        <LatestReviewsSection
-          reviews={latestReviews}
-          textColor={textColor}
-          backgroundColor={backgroundColor}
-          border={border}
-        />
+
         <EditorsChoiceSection
           items={editorPicks}
           textColor={textColor}
