@@ -12,7 +12,7 @@ export default function WelcomeScreen() {
   const backgroundColor = useThemeColor({}, "background");
   const subText = useThemeColor({}, "subText");
   const buttonText = useThemeColor({}, "buttonText");
-
+  const button = useThemeColor({}, "button");
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
@@ -41,7 +41,7 @@ export default function WelcomeScreen() {
             <Text style={[styles.descriptionCenter, { color: subText }]}>
               Start discovering your {"\n"} favorite tunes
             </Text>
-            <Pressable onPress={() => router.push("/auth/login")} style={styles.button}>
+            <Pressable onPress={() => router.push("/auth/login")} style={[styles.button, { backgroundColor: button }]}>
               <Text style={[styles.buttonText, { color: buttonText }]}>Let's Go</Text>
             </Pressable>
           </View>

@@ -15,16 +15,20 @@ import TrendingSection from "@/components/index/sections/TrendingSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 export default function Dashboard() {
   const subText = useThemeColor({}, "subText");
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
   const border = useThemeColor({}, "border");
+  const button = useThemeColor({}, "button");
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
   const [searchQuery, setSearchQuery] = useState("");
+
   const filteredItems = trendingItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  const [selectedTab, setSelectedTab] = useState("For You");
+  const tabs = ["For You", "New", "Following", "Reviews"];
 
   return (
     <ScrollView>
@@ -37,7 +41,7 @@ export default function Dashboard() {
           backgroundColor: backgroundColor,
           paddingTop: 50,
           paddingHorizontal: 20,
-          paddingBottom: 100,
+          paddingBottom: 50,
         }}
       >
         <View
@@ -48,11 +52,38 @@ export default function Dashboard() {
             marginBottom: 20,
           }}
         >
+          <View style={{ alignItems: "center" }}>
+            <Text
+              style={{
+                fontSize: 28,
+                fontFamily: "Poppins_700Bold",
+                color: textColor,
+                letterSpacing: 1,
+              }}
+            >
+              M
+            </Text>
+            <View
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: textColor,
+                opacity: 0.6,
+                marginTop: 2,
+              }}
+            />
+          </View>
+
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 20,
               fontFamily: "Poppins_700Bold",
               color: textColor,
+              opacity: 0.7,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              marginLeft: 18,
             }}
           >
             Feed
@@ -76,32 +107,47 @@ export default function Dashboard() {
           </TouchableOpacity>
         </View>
 
-        {/* Search Bar */}
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "#f0f0f5",
-            borderRadius: 16,
-            paddingHorizontal: 12,
-            paddingVertical: 10,
-            marginBottom: 20,
-          }}
-        >
-          <Ionicons name="search-outline" size={20} color={subText} style={{ marginRight: 8 }} />
-          <TextInput
-            placeholder="Search songs, albums, artists..."
-            placeholderTextColor={subText}
-            value={searchQuery}
-            onChangeText={setSearchQuery}
+        <View style={{ marginBottom: 28 }}>
+          <Text
             style={{
-              flex: 1,
-              fontSize: 12,
+              fontSize: 18,
+              fontFamily: "Poppins_600SemiBold",
               color: textColor,
-              fontFamily: "Poppins_400Regular",
+              marginBottom: 12,
             }}
-          />
+          >
+            Explore
+          </Text>
+
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+            {tabs.map((tab) => {
+              const isSelected = tab === selectedTab;
+              return (
+                <TouchableOpacity
+                  key={tab}
+                  onPress={() => setSelectedTab(tab)}
+                  style={{
+                    paddingVertical: 6,
+                    paddingHorizontal: 16,
+                    backgroundColor: isSelected ? button : border,
+                    borderRadius: 20,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: "Poppins_500Medium",
+                      fontSize: 14,
+                      color: isSelected ? "white" : textColor,
+                    }}
+                  >
+                    {tab}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
         </View>
+
         <EditorsChoiceSection
           items={editorPicks}
           textColor={textColor}

@@ -1,5 +1,6 @@
 const tintColorLight = "#0a7ea4";
 const tintColorDark = "#fff";
+const museRed = "#D72638";
 
 export const Colors = {
   light: {
@@ -11,6 +12,7 @@ export const Colors = {
     tabIconSelected: tintColorLight,
     subText: "#64748b",
     buttonText: "#ffffff",
+    button: museRed,
     border: "rgba(0, 0, 0, 0.1)",
     cardBackground: "#f9fafb",
   },
@@ -23,6 +25,7 @@ export const Colors = {
     tabIconSelected: tintColorDark,
     subText: "#94a3b8",
     buttonText: "#ffffff",
+    button: museRed,
     border: "rgba(255, 255, 255, 0.1)",
     cardBackground: "#1f2937",
   },

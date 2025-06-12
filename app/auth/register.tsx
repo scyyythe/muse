@@ -22,7 +22,7 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const button = useThemeColor({}, "button");
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
 
@@ -79,7 +79,7 @@ export default function RegisterScreen() {
           />
         </View>
 
-        <Button color="#D72638" variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
+        <Button color={button} variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
           Create Account
         </Button>
 

@@ -29,7 +29,7 @@ export default function EditorsChoiceSection({
   onSeeAllPress,
 }: EditorsChoiceSectionProps) {
   return (
-    <View style={{ marginVertical: 10 }}>
+    <View>
       <View
         style={{
           flexDirection: "row",

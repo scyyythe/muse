@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const button = useThemeColor({}, "button");
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
 
@@ -78,7 +78,7 @@ export default function LoginScreen({ navigation }: Props) {
           </View>
         </View>
 
-        <Button color="#D72638" onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
+        <Button color={button} onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
           Sign In
         </Button>
 
