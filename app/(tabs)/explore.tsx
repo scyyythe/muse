@@ -1,12 +1,9 @@
+import ExploreFilterHeader from "@/components/explore/ExploreFilterHeader";
+import CriticsCornerSection from "@/components/explore/sections/CriticsCornerSection";
 import ExploreCategoryGrid from "@/components/explore/sections/ExploreCategoryGrid";
 import MostControversialReviewsSection from "@/components/explore/sections/MostControversialReviewsSection";
 import ReviewSpotlightSection from "@/components/explore/sections/ReviewSpotlightSection";
 import TrendingReviewedAlbumsSection from "@/components/explore/sections/TrendingReviewedAlbumsSection";
-import artistCarouselData from "@/components/index/data/index/artistCarouselData";
-import { editorPicks } from "@/components/index/data/index/editorsPicks";
-import trendingItems from "@/components/index/data/index/trendingItems";
-import ArtistCarouselSection from "@/components/index/sections/ArtistCarouselSection";
-import EditorsChoiceSection from "@/components/index/sections/EditorsChoiceSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -17,12 +14,14 @@ export default function Dashboard() {
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
   const border = useThemeColor({}, "border");
+  const button = useThemeColor({}, "button");
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
   const [searchQuery, setSearchQuery] = useState("");
-  const filteredItems = trendingItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+  const [selectedFilter, setSelectedFilter] = useState("Top This Week");
 
   return (
-    <ScrollView>
+    <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
       <Animatable.View
         animation="fadeInUp"
         duration={600}
@@ -107,7 +106,7 @@ export default function Dashboard() {
             borderRadius: 16,
             paddingHorizontal: 12,
             paddingVertical: 10,
-            marginBottom: 20,
+            marginBottom: 10,
           }}
         >
           <Ionicons name="search-outline" size={20} color={subText} style={{ marginRight: 8 }} />
@@ -124,6 +123,14 @@ export default function Dashboard() {
             }}
           />
         </View>
+        <ExploreFilterHeader
+          selectedFilter={selectedFilter}
+          onSelectFilter={setSelectedFilter}
+          textColor={textColor}
+          backgroundColor={backgroundColor}
+          button={button}
+          border={border}
+        />
         <ExploreCategoryGrid
           textColor={textColor}
           backgroundColor={backgroundColor}
@@ -132,15 +139,8 @@ export default function Dashboard() {
         <TrendingReviewedAlbumsSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
         <ReviewSpotlightSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
         <MostControversialReviewsSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
-        <ArtistCarouselSection artists={artistCarouselData} textColor={textColor} />
 
-        <EditorsChoiceSection
-          items={editorPicks}
-          textColor={textColor}
-          subText={subText}
-          backgroundColor={backgroundColor}
-          border={border}
-        />
+        <CriticsCornerSection textColor={textColor} cardBackgroundColor={cardBackgroundColor} />
       </Animatable.View>
     </ScrollView>
   );
