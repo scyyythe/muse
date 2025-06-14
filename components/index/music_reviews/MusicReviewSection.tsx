@@ -56,7 +56,6 @@ export default function MusicReviewSection() {
           <Text style={{ color: "#fff", fontWeight: "600", fontSize: 14 }}>Add</Text>
         </TouchableOpacity>
       </View>
-
       {/* Reviews */}
       <ScrollView showsVerticalScrollIndicator={false}>
         {reviews.slice(0, 10).map((review, index) => (
@@ -118,7 +117,7 @@ export default function MusicReviewSection() {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      {/* View All Reviews Button */}
+      {/* View All Reviews Button */};;
       {reviews.length > 10 && (
         <TouchableOpacity
           onPress={() => router.push("/display/reviews")}
@@ -161,7 +160,6 @@ export default function MusicReviewSection() {
           setModalVisible(false);
         }}
       />
-
       {/* Full Comment Modal */}
       <FullReviewModal
         visible={fullCommentModal !== null}

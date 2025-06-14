@@ -1,20 +1,11 @@
 import Input from "@/components/fields/Input";
 import Label from "@/components/fields/Label";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { Button } from "@react-navigation/elements";
 import { router } from "expo-router";
 import React, { useState } from "react";
-import {
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function RegisterScreen() {
   const [fullName, setFullName] = useState("");
@@ -25,10 +16,12 @@ export default function RegisterScreen() {
   const button = useThemeColor({}, "button");
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
-
+  const backgroundColor = useThemeColor({}, "background");
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30 }}>
+    <KeyboardAvoidingView style={{ flex: 1, backgroundColor }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, justifyContent: "center", padding: 30, backgroundColor: backgroundColor }}
+      >
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={15} style={[{ color: textColor }]} />
@@ -84,11 +77,17 @@ export default function RegisterScreen() {
         </Button>
 
         <View style={styles.IconsContainer}>
-          <Text style={[styles.signWith, { color: subText }]}>or sign up with</Text>
+          <Text style={[styles.signWith, { color: subText }]}>or sign in with</Text>
           <View style={styles.socialContainer}>
-            <Image source={require("@/assets/icons/gmail-white.png")} style={styles.socialIcon} />
-            <Image source={require("@/assets/icons/meta-white.png")} style={styles.socialIcon} />
-            <Image source={require("@/assets/icons/apple-white.png")} style={styles.socialIcon} />
+            <TouchableOpacity>
+              <AntDesign name="google" size={15} color={textColor} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <FontAwesome name="facebook" size={15} color={textColor} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <FontAwesome5 name="apple" size={15} color={textColor} />
+            </TouchableOpacity>
           </View>
         </View>
 
