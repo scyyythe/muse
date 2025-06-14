@@ -1,7 +1,7 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { Dimensions, FlatList, Text, TouchableOpacity, View } from "react-native";
 import GenreCard from "../card/GenreCard";
-
 type Genre = {
   id: number;
   name: string;
@@ -22,7 +22,7 @@ type GenreGridProps = {
 
 const numColumns = 2;
 const screenWidth = Dimensions.get("window").width;
-
+const router = useRouter();
 export default function GenreGrid({
   genres,
   onPressGenre,
@@ -38,12 +38,17 @@ export default function GenreGrid({
       <GenreCard
         name={item.name}
         image={item.image}
-        onPress={() => onPressGenre?.(item)}
         textColor={textColor}
         backgroundColor={backgroundColor}
         border={border}
         reviewCount={item.reviewCount}
         cardBackgroundColor={cardBackgroundColor}
+        onPress={() =>
+          router.push({
+            pathname: "/screens/genre/[id]",
+            params: { id: item.id.toString() },
+          })
+        }
       />
     </View>
   );

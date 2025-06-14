@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { Image, Linking, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import Header from "../header";
+import Header from "../../header";
 
 export default function EditorDetailScreen() {
   const { id } = useLocalSearchParams();

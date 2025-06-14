@@ -5,7 +5,7 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Dimensions, Image, ScrollView, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
-import Header from "../header";
+import Header from "../../header";
 const { width } = Dimensions.get("window");
 
 export default function MusicDetailPage() {

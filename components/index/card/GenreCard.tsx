@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, Text, TouchableOpacity } from "react-native";
-
 type GenreCardProps = {
   name: string;
   image: string;

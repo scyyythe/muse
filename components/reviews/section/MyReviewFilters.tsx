@@ -16,7 +16,7 @@ export default function MyReviewFilters({ onFilterChange, textColor, button, bor
   const filters: FilterOption[] = ["All", "Highest Rated", "Most Liked", "Newest", "Oldest"];
 
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 16 }}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       <View style={{ flexDirection: "row", gap: 10, paddingHorizontal: 10 }}>
         {filters.map((filter) => {
           const isSelected = active === filter;
@@ -29,7 +29,6 @@ export default function MyReviewFilters({ onFilterChange, textColor, button, bor
                 onFilterChange(filter);
               }}
               style={{
-                paddingVertical: 6,
                 paddingHorizontal: 14,
                 borderRadius: 20,
                 borderWidth: 1,
