@@ -1,8 +1,13 @@
 import Header from "@/app/header";
-import { genres } from "@/components/data/index/genres";
+import { genres } from "@/components/data/index/genre/genres";
+import { mockReviews } from "@/components/data/index/genre/mockReviews";
+import { topAlbums } from "@/components/data/index/genre/topAlbums";
+import GenreRecentReviews from "@/components/index/genres/GenreRecentReviews";
+import TopAlbumsByGenre from "@/components/index/genres/TopAlbumsByGenre";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLocalSearchParams } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
+
 export default function GenreDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -11,6 +16,9 @@ export default function GenreDetailScreen() {
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
   const backgroundColor = useThemeColor({}, "background");
+  const cardBackgroundColor = useThemeColor({}, "cardBackground");
+  const button = useThemeColor({}, "button");
+
   if (!genre) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 20 }}>
@@ -30,9 +38,8 @@ export default function GenreDetailScreen() {
         </Text>
       </View>
 
-      <Text style={{ fontSize: 16, fontFamily: "Poppins_500Medium" }}>
-        Display genre-specific albums, top reviews, and more here.
-      </Text>
+      <TopAlbumsByGenre albums={topAlbums} />
+      <GenreRecentReviews reviews={mockReviews} />
     </ScrollView>
   );
 }
