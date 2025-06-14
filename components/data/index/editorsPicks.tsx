@@ -8,6 +8,7 @@ export const editorPicks = [
     rating: 4.8,
     songsByArtist: 23,
     editorNote: "Chosen for its emotional vocal delivery and minimalist production that resonates with R&B fans.",
+    youtubeUrl: "https://www.youtube.com/watch?v=9Jxzvv5vZHo",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const editorPicks = [
     rating: 4.5,
     songsByArtist: 17,
     editorNote: "Selected for its poetic lyrics and unique blend of indie rock and spoken word.",
+    youtubeUrl: "https://www.youtube.com/watch?v=NYl0vAE0F5w",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const editorPicks = [
     rating: 4.9,
     songsByArtist: 25,
     editorNote: "Highlighted for its dreamy atmosphere and introspective lyricism that defines modern R&B.",
+    youtubeUrl: "https://www.youtube.com/watch?v=62qWL1f6BaI",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ export const editorPicks = [
     rating: 4.6,
     songsByArtist: 19,
     editorNote: "Chosen for its explosive second half and its commentary on fame and vulnerability.",
+    youtubeUrl: "https://www.youtube.com/watch?v=5GJWxDKyk3A",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const editorPicks = [
     rating: 4.8,
     songsByArtist: 32,
     editorNote: "Recognized for its cultural impact and lyrical mastery in modern hip-hop.",
+    youtubeUrl: "https://www.youtube.com/watch?v=Z-48u_uWMHY",
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const editorPicks = [
     rating: 4.4,
     songsByArtist: 28,
     editorNote: "Chosen for its cinematic feel and haunting delivery that shaped alt-pop.",
+    youtubeUrl: "https://www.youtube.com/watch?v=nVjsGKrE6E8",
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ export const editorPicks = [
     rating: 4.7,
     songsByArtist: 24,
     editorNote: "Highlighted for its genre fusion and clever songwriting that pushes creative boundaries.",
+    youtubeUrl: "https://www.youtube.com/watch?v=TGgcC5xg9YI",
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ export const editorPicks = [
     rating: 4.9,
     songsByArtist: 21,
     editorNote: "Selected for its raw vulnerability and vocal excellence that defines Adele’s legacy.",
+    youtubeUrl: "https://www.youtube.com/watch?v=U3ASj1L6_sY",
   },
   {
     id: 9,
@@ -88,6 +96,7 @@ export const editorPicks = [
     rating: 4.8,
     songsByArtist: 30,
     editorNote: "Celebrated for its retro synth-pop revival and universal appeal.",
+    youtubeUrl: "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
   },
   {
     id: 10,
@@ -98,5 +107,6 @@ export const editorPicks = [
     rating: 4.6,
     songsByArtist: 20,
     editorNote: "Included for its catchy production and influence on modern pop aesthetics.",
+    youtubeUrl: "https://www.youtube.com/watch?v=pok8H_KF1FA",
   },
 ];

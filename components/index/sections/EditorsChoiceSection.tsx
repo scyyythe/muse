@@ -1,12 +1,14 @@
 import { router } from "expo-router";
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
 import EditorsChoiceCard from "../card/EditorsChoiceCard";
+
 type EditorsChoiceItem = {
   id: number;
   title: string;
   subtitle: string;
   image: string;
+  youtubeUrl: string;
 };
 
 type EditorsChoiceSectionProps = {
@@ -28,6 +30,8 @@ export default function EditorsChoiceSection({
   title = "Editor's Choice",
   onSeeAllPress,
 }: EditorsChoiceSectionProps) {
+  const { width } = useWindowDimensions();
+
   return (
     <View>
       <View
@@ -36,6 +40,7 @@ export default function EditorsChoiceSection({
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: 20,
+          paddingHorizontal: 4,
         }}
       >
         <Text
@@ -47,7 +52,10 @@ export default function EditorsChoiceSection({
         >
           {title}
         </Text>
-        <TouchableOpacity onPress={() => router.push("/display/editors-picks")} style={{ marginBottom: 12 }}>
+        <TouchableOpacity
+          onPress={onSeeAllPress || (() => router.push("/display/editors-picks"))}
+          style={{ marginBottom: 12 }}
+        >
           <Text
             style={{
               fontSize: 13,
@@ -60,8 +68,17 @@ export default function EditorsChoiceSection({
         </TouchableOpacity>
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {items.slice(0, 2).map((item) => (
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          gap: 16,
+          justifyContent: items.length < 2 ? "center" : "flex-start",
+          width: items.length < 2 ? width : undefined,
+        }}
+      >
+        {items.slice(0, 5).map((item) => (
           <EditorsChoiceCard
             key={item.id}
             id={item.id}

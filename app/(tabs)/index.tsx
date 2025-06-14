@@ -15,8 +15,9 @@ import TrendingSection from "@/components/index/sections/TrendingSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
+
 export default function Dashboard() {
   const subText = useThemeColor({}, "subText");
   const textColor = useThemeColor({}, "text");
@@ -24,26 +25,26 @@ export default function Dashboard() {
   const border = useThemeColor({}, "border");
   const button = useThemeColor({}, "button");
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
-  const [searchQuery, setSearchQuery] = useState("");
 
+  const { width } = Dimensions.get("window");
+
+  const [searchQuery, setSearchQuery] = useState("");
   const filteredItems = trendingItems.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
   const [selectedTab, setSelectedTab] = useState("For You");
   const tabs = ["For You", "New", "Following", "Reviews"];
 
   return (
-    <ScrollView>
-      <Animatable.View
-        animation="fadeInUp"
-        duration={600}
-        delay={50}
-        style={{
-          flex: 1,
-          backgroundColor: backgroundColor,
-          paddingTop: 50,
-          paddingHorizontal: 20,
-          paddingBottom: 50,
-        }}
-      >
+    <ScrollView
+      contentContainerStyle={{
+        paddingTop: 50,
+        paddingBottom: 60,
+        paddingHorizontal: width < 400 ? 16 : 20,
+        backgroundColor: backgroundColor,
+      }}
+    >
+      <Animatable.View animation="fadeInUp" duration={600} delay={50}>
+        {/* Header */}
         <View
           style={{
             flexDirection: "row",
@@ -107,11 +108,13 @@ export default function Dashboard() {
           </TouchableOpacity>
         </View>
 
+        {/* Tabs */}
+
         <View style={{ marginBottom: 28 }}>
           <Text
             style={{
               fontSize: 18,
-              fontFamily: "Poppins_600SemiBold",
+              fontFamily: "Poppins_700Regular",
               color: textColor,
               marginBottom: 12,
             }}
@@ -119,7 +122,7 @@ export default function Dashboard() {
             Explore
           </Text>
 
-          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 10 }}>
             {tabs.map((tab) => {
               const isSelected = tab === selectedTab;
               return (
@@ -131,6 +134,7 @@ export default function Dashboard() {
                     paddingHorizontal: 16,
                     backgroundColor: isSelected ? button : border,
                     borderRadius: 20,
+                    marginRight: 8,
                   }}
                 >
                   <Text
@@ -145,9 +149,10 @@ export default function Dashboard() {
                 </TouchableOpacity>
               );
             })}
-          </View>
+          </ScrollView>
         </View>
 
+        {/* Sections */}
         <EditorsChoiceSection
           items={editorPicks}
           textColor={textColor}
@@ -166,7 +171,6 @@ export default function Dashboard() {
           subText={subText}
           cardBackgroundColor={cardBackgroundColor}
         />
-
         <TopReviewsSection
           review={topReviews}
           textColor={textColor}

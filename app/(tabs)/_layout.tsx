@@ -2,11 +2,15 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Tabs } from "expo-router";
 import React from "react";
-import { View, ViewStyle } from "react-native";
+import { Dimensions, View, ViewStyle } from "react-native";
 
 export default function TabLayout() {
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
+
+  const { width } = Dimensions.get("window");
+  const tabWidth = width * 0.9;
+
   return (
     <Tabs
       screenOptions={{
@@ -19,19 +23,20 @@ export default function TabLayout() {
         },
         tabBarLabelStyle: {
           fontSize: 12,
-          fontFamily: "Poppins_500Medium",
-          marginTop: 5,
+          fontFamily: "Poppins_700Regular",
+          marginTop: 4,
         },
+
         tabBarStyle: {
           position: "absolute",
           bottom: 20,
-          left: 60,
-          right: 60,
+          left: (width - tabWidth) / 2,
+          width: tabWidth,
           backgroundColor: backgroundColor,
           borderRadius: 24,
-          height: 75,
-          paddingBottom: 10,
-          paddingTop: 12,
+          height: 80,
+          paddingBottom: 13,
+          paddingTop: 10,
           borderTopWidth: 0,
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 5 },
@@ -80,7 +85,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="reviews"
         options={{
-          title: "My Reviews",
+          title: "Reviews",
           tabBarIcon: ({ color, focused }) => (
             <View
               style={{

@@ -10,6 +10,7 @@ type EditorsChoiceCardProps = {
   subText?: string;
   backgroundColor?: string;
   border?: string;
+  youtubeUrl?: string;
 };
 
 export default function EditorsChoiceCard({
@@ -20,6 +21,7 @@ export default function EditorsChoiceCard({
   textColor,
   subText,
   border,
+  youtubeUrl,
   backgroundColor,
 }: EditorsChoiceCardProps) {
   const goToDetail = () => {
@@ -36,10 +38,7 @@ export default function EditorsChoiceCard({
           marginRight: 17,
           borderRadius: 16,
           backgroundColor: backgroundColor,
-          shadowColor: "#000",
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
-          shadowOffset: { width: 0, height: 4 },
+
           elevation: 4,
           borderWidth: 1,
           borderColor: border,
