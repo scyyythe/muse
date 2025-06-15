@@ -26,7 +26,7 @@ export default function EditorsChoiceCard({
 }: EditorsChoiceCardProps) {
   const goToDetail = () => {
     router.push({
-      pathname: "/editor/[id]",
+      pathname: "/screens/editor/[id]",
       params: { id: id.toString() },
     });
   };

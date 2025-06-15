@@ -9,7 +9,7 @@ export default function TabLayout() {
   const backgroundColor = useThemeColor({}, "background");
 
   const { width } = Dimensions.get("window");
-  const tabWidth = width * 0.9;
+  const tabWidth = width * 1;
 
   return (
     <Tabs
@@ -35,7 +35,7 @@ export default function TabLayout() {
           backgroundColor: backgroundColor,
           borderRadius: 24,
           height: 80,
-          paddingBottom: 13,
+          paddingBottom: 20,
           paddingTop: 10,
           borderTopWidth: 0,
           shadowColor: "#000",

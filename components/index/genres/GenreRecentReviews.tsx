@@ -64,7 +64,7 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
   return (
     <View style={{ marginTop: 30 }}>
       <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 18, color: textColor, marginBottom: 12 }}>
-        📝 Recent Reviews
+        Recent Reviews
       </Text>
       <FlatList
         data={reviews}
