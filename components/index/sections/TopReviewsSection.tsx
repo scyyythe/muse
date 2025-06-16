@@ -41,9 +41,9 @@ export default function TopReviewsSection({
         <Text style={{ fontSize: 18, fontFamily: "Poppins_700Bold", color: textColor }}>
           Highlights
         </Text>
-        <Text style={{ fontSize: 15, fontFamily: "Poppins_500Medium", color: subText }}>
+        {/* <Text style={{ fontSize: 15, fontFamily: "Poppins_500Medium", color: subText }}>
           See all
-        </Text>
+        </Text> */}
       </View>
 
       <TopReviewCard review={top} cardBackgroundColor={cardBackgroundColor} />
