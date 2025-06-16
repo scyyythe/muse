@@ -1,4 +1,5 @@
-// imports
+
+import Header from "@/app/header";
 import trendingItems from "@/components/data/index/trendingItems";
 import MusicReviewSection from "@/components/index/music_reviews/MusicReviewSection";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -7,8 +8,6 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
-import Header from "../../../header";
-
 const { width } = Dimensions.get("window");
 
 export default function MusicDetailPage() {
@@ -82,7 +81,7 @@ export default function MusicDetailPage() {
             flexDirection: "row",
             alignItems: "center",
             gap: 12,
-            marginTop: 16,
+            
             paddingVertical: 12,
           }}
         >
@@ -95,14 +94,10 @@ export default function MusicDetailPage() {
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
-    marginTop: 16,
-    paddingVertical: 12,
+
   }}
 >
-  <Image
-    source={{ uri: "https://i.pravatar.cc/100" }}
-    style={{ width: 40, height: 40, borderRadius: 20 }}
-  />
+
   <View>
     <Text style={{ fontFamily: "Poppins_600SemiBold", fontSize: 15, color: textColor }}>
       {item.artist}
@@ -120,7 +115,7 @@ export default function MusicDetailPage() {
           animation="fadeInUp"
           delay={300}
           duration={600}
-          style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 16 }}
+          style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 16, paddingInline:10 }}
         >
           <TouchableOpacity
             onPress={() => setLiked(!liked)}

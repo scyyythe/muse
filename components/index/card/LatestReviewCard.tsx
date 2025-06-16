@@ -28,7 +28,7 @@ export default function LatestReviewCard({
 }: Props) {
   const handlePress = () => {
     router.push({
-      pathname: "/screens/index/latest_review/[id]",
+      pathname: "/screens/latest_review/[id]",
       params: { id: review.id },
     });
   };
