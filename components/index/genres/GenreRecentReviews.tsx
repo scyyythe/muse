@@ -1,6 +1,6 @@
+import AddReviewModal from "@/components/modal/reviews/AddReviewModal";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { router } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
 type Review = {
@@ -23,6 +23,17 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
+  const buttonColor = useThemeColor({}, "button");
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [reviewText, setReviewText] = useState("");
+
+  const handleSubmitReview = (comment: string) => {
+    // You can update this logic to post the review to backend or update local state
+    console.log("Posted review:", comment);
+    setReviewText("");
+    setModalVisible(false);
+  };
 
   const renderItem = ({ item }: { item: Review }) => (
     <TouchableOpacity
@@ -56,19 +67,34 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
 
   return (
     <View style={{ marginTop: 30 }}>
-      <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 18, color: textColor, marginBottom: 12 }}>
-        Recent Reviews
-      </Text>
+      {/* Header with Add Review button */}
+      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+        <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 18, color: textColor }}>
+          Recent Reviews
+        </Text>
+        <TouchableOpacity
+          onPress={() => setModalVisible(true)}
+          style={{
+            paddingVertical: 6,
+            paddingHorizontal: 12,
+            backgroundColor: buttonColor,
+            borderRadius: 8,
+          }}
+        >
+          <Text style={{ fontSize: 13, color: "#fff", fontFamily: "Poppins_500Medium" }}>Add Review</Text>
+        </TouchableOpacity>
+      </View>
 
+      {/* List */}
       <FlatList
-        data={reviews.slice(0, 5)} // Only display the first 5
+        data={reviews.slice(0, 5)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         scrollEnabled={false}
       />
 
       {reviews.length > 5 && (
-        <TouchableOpacity onPress={() => router.push("/display/reviews")}>
+        <TouchableOpacity onPress={() => console.log("Navigate to all reviews")}>
           <Text
             style={{
               marginTop: 4,
@@ -82,6 +108,15 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
           </Text>
         </TouchableOpacity>
       )}
+
+      {/* Add Review Modal */}
+      <AddReviewModal
+        visible={isModalVisible}
+        onClose={() => setModalVisible(false)}
+        onSubmit={handleSubmitReview}
+        reviewText={reviewText}
+        setReviewText={setReviewText}
+      />
     </View>
   );
 }

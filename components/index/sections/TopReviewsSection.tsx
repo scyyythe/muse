@@ -1,15 +1,15 @@
-import { Ionicons } from "@expo/vector-icons";
-import { BlurView } from "expo-blur";
 import React from "react";
-import { Image, Text, View } from "react-native";
-
+import { Text, View } from "react-native";
+import TopReviewCard from "../card/top_review/TopReviewCard";
 type TopReview = {
+   id: number;
   title: string;
   content: string;
   author?: string;
   image: string;
   rating?: number;
 };
+
 type TopReviewsSectionProps = {
   review: TopReview[];
   textColor?: string;
@@ -17,13 +17,18 @@ type TopReviewsSectionProps = {
   cardBackgroundColor?: string;
 };
 
-export default function TopReviewsSection({ review, textColor, subText, cardBackgroundColor }: TopReviewsSectionProps) {
+export default function TopReviewsSection({
+  review,
+  textColor,
+  subText,
+  cardBackgroundColor,
+}: TopReviewsSectionProps) {
   const top = review[0];
 
   if (!top) return null;
+
   return (
     <View style={{ marginTop: 0 }}>
-      {/* Header */}
       <View
         style={{
           marginTop: 10,
@@ -33,116 +38,15 @@ export default function TopReviewsSection({ review, textColor, subText, cardBack
           alignItems: "center",
         }}
       >
-        <Text
-          style={{
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            color: textColor,
-          }}
-        >
+        <Text style={{ fontSize: 18, fontFamily: "Poppins_700Bold", color: textColor }}>
           Highlights
         </Text>
-        <Text
-          style={{
-            fontSize: 15,
-            fontFamily: "Poppins_500Medium",
-            color: subText,
-          }}
-        >
+        <Text style={{ fontSize: 15, fontFamily: "Poppins_500Medium", color: subText }}>
           See all
         </Text>
       </View>
 
-      {/* Review Card */}
-      <View style={{ borderRadius: 16, overflow: "hidden" }}>
-        <Image
-          source={{ uri: top.image }}
-          style={{
-            width: "100%",
-            height: 400,
-            resizeMode: "cover",
-          }}
-        />
-
-        <BlurView
-          intensity={60}
-          tint="dark"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: 14,
-            borderBottomLeftRadius: 16,
-            borderBottomRightRadius: 16,
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
-          }}
-        >
-          {top.rating !== undefined && (
-            <View
-              style={{
-                position: "absolute",
-                top: 12,
-                right: 12,
-                backgroundColor: "rgba(0,0,0,0.5)",
-                borderRadius: 12,
-                paddingHorizontal: 8,
-                paddingVertical: 4,
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 12,
-                  fontFamily: "Poppins_600SemiBold",
-                  color: "white",
-                  marginRight: 4,
-                }}
-              >
-                {top.rating.toFixed(1)}
-              </Text>
-              <Ionicons name="star" size={14} color="white" />
-            </View>
-          )}
-
-          <Text
-            style={{
-              fontSize: 14,
-              fontFamily: "Poppins_700Bold",
-              color: "#f8f8f8",
-              marginBottom: 6,
-            }}
-          >
-            {top.title}
-          </Text>
-
-          <Text
-            style={{
-              fontSize: 12,
-              fontFamily: "Poppins_400Regular",
-              color: "#dddddd",
-              marginBottom: top.author ? 6 : 0,
-              lineHeight: 20,
-            }}
-            numberOfLines={3}
-          >
-            {top.content}
-          </Text>
-
-          {top.author && (
-            <Text
-              style={{
-                fontSize: 12,
-                fontFamily: "Poppins_500Medium",
-                color: "#bbb",
-              }}
-            >
-              — {top.author}
-            </Text>
-          )}
-        </BlurView>
-      </View>
+      <TopReviewCard review={top} cardBackgroundColor={cardBackgroundColor} />
     </View>
   );
 }
