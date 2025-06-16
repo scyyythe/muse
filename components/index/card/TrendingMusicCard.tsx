@@ -13,7 +13,7 @@ type CardProps = {
 export default function TrendingMusicCard({ id, image, title, rating, textColor }: CardProps) {
   const goToDetail = () => {
     router.push({
-      pathname: "/screens/music/[id]",
+      pathname: "/screens/index/music/[id]",
       params: { id: id.toString() },
     });
   };

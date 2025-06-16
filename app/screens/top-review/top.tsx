@@ -61,11 +61,11 @@ export default function TopReviewDetail() {
 
       <BlurView
         intensity={50}
-        tint="dark"
+
         style={{
           backgroundColor: cardBackgroundColor,
           borderRadius: 20,
-          padding: 20,
+     padding:10,
           marginBottom: 24,
         }}
       >
@@ -74,7 +74,7 @@ export default function TopReviewDetail() {
             {review.title}
           </Text>
 
-          <Text style={{ fontSize: 15, fontFamily: "Poppins_400Regular", color: subText, marginBottom: 10, lineHeight: 22 }}>
+          <Text style={{ fontSize: 14, fontFamily: "Poppins_400Regular", color: subText, marginBottom: 10, lineHeight: 22 }}>
             {review.content}
           </Text>
 
@@ -133,8 +133,6 @@ export default function TopReviewDetail() {
             <Entypo name="youtube" size={22} color="#FF0000" />
           </TouchableOpacity>
         </Animated.View>
-
-
 
 
 
