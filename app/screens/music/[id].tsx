@@ -30,16 +30,17 @@ export default function MusicDetailPage() {
       <Animatable.View animation="fadeInUp" duration={500} delay={50}>
         <Header title="Music" textColor={textColor} />
 
-        <Image
-          source={{ uri: item.image }}
-          style={{
-            width: width * 0.5,
-            height: width * 0.5,
-            borderRadius: 20,
-            alignSelf: "center",
-            marginBottom: 24,
-          }}
-        />
+    <Image
+  source={{ uri: item.image }}
+  style={{
+    width: "100%",
+    height: width * 1,
+    borderRadius: 20,
+    marginBottom: 24,
+    resizeMode: "cover",
+  }}
+/>
+
 
         <Text style={{ fontSize: 24, fontWeight: "700", textAlign: "center", marginBottom: 4, color: textColor }}>
           {item.title}

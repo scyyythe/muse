@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import { Dimensions, FlatList, Text, TouchableOpacity, View } from "react-native";
-import GenreCard from "../card/GenreCard";
+import GenreCard from "../card/genre/GenreCard";
 type Genre = {
   id: number;
   name: string;

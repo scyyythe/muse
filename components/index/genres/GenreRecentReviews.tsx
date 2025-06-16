@@ -1,4 +1,5 @@
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { router } from "expo-router";
 import React from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
@@ -36,7 +37,6 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
       }}
     >
       <Image source={{ uri: item.user.avatar }} style={{ width: 48, height: 48, borderRadius: 24, marginRight: 12 }} />
-
       <View style={{ flex: 1 }}>
         <Text style={{ fontFamily: "Poppins_600SemiBold", fontSize: 14, color: textColor }}>
           {item.user.name} • {item.rating.toFixed(1)}★
@@ -47,14 +47,7 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
         >
           {item.text}
         </Text>
-        <Text
-          style={{
-            fontFamily: "Poppins_400Regular",
-            fontSize: 12,
-            color: subText,
-            marginTop: 6,
-          }}
-        >
+        <Text style={{ fontFamily: "Poppins_400Regular", fontSize: 12, color: subText, marginTop: 6 }}>
           ❤️ {item.likes} Likes
         </Text>
       </View>
@@ -66,12 +59,29 @@ export default function GenreRecentReviews({ reviews, onPressReview }: Props) {
       <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 18, color: textColor, marginBottom: 12 }}>
         Recent Reviews
       </Text>
+
       <FlatList
-        data={reviews}
+        data={reviews.slice(0, 5)} // Only display the first 5
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         scrollEnabled={false}
       />
+
+      {reviews.length > 5 && (
+        <TouchableOpacity onPress={() => router.push("/display/reviews")}>
+          <Text
+            style={{
+              marginTop: 4,
+              marginLeft: 4,
+              fontFamily: "Poppins_500Medium",
+              fontSize: 13,
+              color: textColor,
+            }}
+          >
+            View all reviews →
+          </Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

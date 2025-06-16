@@ -1,13 +1,17 @@
 import Header from "@/app/header";
 import { genres } from "@/components/data/index/genre/genres";
+import { genreStats } from "@/components/data/index/genre/genreStats";
 import { mockReviews } from "@/components/data/index/genre/mockReviews";
 import { topAlbums } from "@/components/data/index/genre/topAlbums";
+import { topArtistsByGenre } from "@/components/data/index/genre/topArtistsByGenre";
+import GenreDescriptionSection from "@/components/index/genres/GenreDescriptionSection";
 import GenreRecentReviews from "@/components/index/genres/GenreRecentReviews";
+import GenreStatsSection from "@/components/index/genres/GenreStatsSection";
 import TopAlbumsByGenre from "@/components/index/genres/TopAlbumsByGenre";
+import TopArtistsByGenre from "@/components/index/genres/TopArtistsByGenre";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useLocalSearchParams } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
-
 export default function GenreDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -40,6 +44,19 @@ export default function GenreDetailScreen() {
 
       <TopAlbumsByGenre albums={topAlbums} />
       <GenreRecentReviews reviews={mockReviews} />
+      <TopArtistsByGenre artists={topArtistsByGenre}/>
+      <GenreStatsSection
+  totalAlbumsReviewed={genreStats.totalAlbumsReviewed}
+  averageRating={genreStats.averageRating}
+  numberOfReviewers={genreStats.numberOfReviewers}
+  mostUsedTags={genreStats.mostUsedTags}
+/>
+<GenreDescriptionSection
+  description={
+    genre.description ||
+    "This genre is characterized by experimental sound design and emotional storytelling. It has evolved over decades, influencing numerous subcultures and musical innovations."
+  }
+/>
     </ScrollView>
   );
 }
