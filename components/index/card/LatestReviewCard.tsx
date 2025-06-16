@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export type LatestReview = {
   id: string;
@@ -9,11 +10,6 @@ export type LatestReview = {
   albumCover: string;
   rating: number;
   comment: string;
-  subText?: string;
-  backgroundColor?: string;
-  textColor?: string;
-  border?: string;
-  cardBackgroundColor?: string;
 };
 
 type Props = {
@@ -24,9 +20,22 @@ type Props = {
   cardBackgroundColor?: string;
 };
 
-export default function LatestReviewCard({ review, textColor, backgroundColor, border, cardBackgroundColor }: Props) {
+export default function LatestReviewCard({
+  review,
+  textColor,
+  border,
+  cardBackgroundColor,
+}: Props) {
+  const handlePress = () => {
+    router.push({
+      pathname: "/screens/index/latest_review/[id]",
+      params: { id: review.id },
+    });
+  };
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={handlePress}
       style={{
         flexDirection: "row",
         backgroundColor: cardBackgroundColor ?? "#fff",
@@ -36,7 +45,6 @@ export default function LatestReviewCard({ review, textColor, backgroundColor, b
         shadowOpacity: 0.05,
         shadowRadius: 8,
         elevation: 3,
-
         borderWidth: 1,
         borderColor: border,
       }}
@@ -50,7 +58,6 @@ export default function LatestReviewCard({ review, textColor, backgroundColor, b
           borderBottomLeftRadius: 16,
         }}
       />
-
       <View style={{ flex: 1, padding: 12, justifyContent: "space-between" }}>
         <Text
           style={{
@@ -97,6 +104,6 @@ export default function LatestReviewCard({ review, textColor, backgroundColor, b
           — {review.user}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
