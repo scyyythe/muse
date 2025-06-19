@@ -13,7 +13,7 @@ type ArtistCardProps = {
 export default function ArtistCarouselCard({ id, image, name, genre, textColor }: ArtistCardProps) {
   const goToDetail = () => {
     router.push({
-      pathname: "/artist/[id]",
+      pathname: "/screens/artist/[id]",
       params: { id: id.toString() },
     });
   };

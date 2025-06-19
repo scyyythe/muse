@@ -1,5 +1,5 @@
 import { jennieAlbums } from "@/components/data/index/albums";
-import artistCarouselData from "@/components/data/index/artistCarouselData";
+import { artistCarouselData } from "@/components/data/index/artistCarouselData";
 import { editorPicks } from "@/components/data/index/editorsPicks";
 import { genres } from "@/components/data/index/genre/genres";
 import { latestReviews } from "@/components/data/index/latestReviews";
