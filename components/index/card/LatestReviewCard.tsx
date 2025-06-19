@@ -10,6 +10,10 @@ export type LatestReview = {
   albumCover: string;
   rating: number;
   comment: string;
+  date?: string;
+  likes?: number;
+  avatar?: string;
+  author?: string;
 };
 
 type Props = {
@@ -20,12 +24,7 @@ type Props = {
   cardBackgroundColor?: string;
 };
 
-export default function LatestReviewCard({
-  review,
-  textColor,
-  border,
-  cardBackgroundColor,
-}: Props) {
+export default function LatestReviewCard({ review, textColor, border, cardBackgroundColor }: Props) {
   const handlePress = () => {
     router.push({
       pathname: "/screens/latest_review/[id]",

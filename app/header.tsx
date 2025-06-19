@@ -18,7 +18,8 @@ export default function Header({ title, textColor = "#000", showBack = true, rig
         alignItems: "center",
         justifyContent: "space-between",
         paddingHorizontal: 5,
-        paddingBottom: 20,
+        paddingTop: 30,
+        marginBlock: 20,
       }}
     >
       {showBack ? (
