@@ -17,7 +17,7 @@ export default function MyReviewFilters({ onFilterChange, textColor, button, bor
 
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <View style={{ flexDirection: "row", gap: 10, paddingHorizontal: 10 }}>
+      <View style={{ flexDirection: "row", gap: 10, paddingHorizontal: 10, marginBottom: 20 }}>
         {filters.map((filter) => {
           const isSelected = active === filter;
 
@@ -29,9 +29,10 @@ export default function MyReviewFilters({ onFilterChange, textColor, button, bor
                 onFilterChange(filter);
               }}
               style={{
-                paddingHorizontal: 14,
+                paddingHorizontal: 20,
                 borderRadius: 20,
                 borderWidth: 1,
+                paddingBlock: 10,
                 borderColor: border || "#888",
                 backgroundColor: isSelected ? button : "transparent",
               }}
