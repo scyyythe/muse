@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import ExploreCategoryCard from "../card/ExploreCategoryCard";
@@ -14,6 +15,8 @@ export default function ExploreCategoryGrid({
   backgroundColor,
   cardBackgroundColor,
 }: ExploreCategoryGridProps) {
+  const router = useRouter();
+
   return (
     <View style={{ marginVertical: 16, backgroundColor: backgroundColor || "transparent" }}>
       <Text
@@ -39,7 +42,7 @@ export default function ExploreCategoryGrid({
             <ExploreCategoryCard
               emoji={cat.emoji}
               label={cat.label}
-              onPress={cat.onPress}
+              onPress={() => router.push(cat.path as any)}
               textColor={textColor}
               backgroundColor={backgroundColor}
               cardBackgroundColor={cardBackgroundColor}

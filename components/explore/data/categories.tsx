@@ -1,8 +1,8 @@
 export const categories = [
-  { emoji: "🎵", label: "Genres", onPress: () => console.log("Navigate to Genres") },
-  { emoji: "⭐", label: "Top Rated", onPress: () => console.log("Navigate to Top Rated Albums") },
-  { emoji: "😮", label: "Controversial", onPress: () => console.log("Navigate to Controversial Reviews") },
-  { emoji: "🆕", label: "New Reviews", onPress: () => console.log("Navigate to Newly Reviewed") },
-  { emoji: "🧠", label: "Thought-Provoking", onPress: () => console.log("Navigate to Thought-Provoking Reviews") },
-  { emoji: "🔁", label: "Most Reviewed", onPress: () => console.log("Navigate to Most Reviewed This Week") },
-];
+  { emoji: "🎵", label: "Genres", path: "/explore/genre" },
+  { emoji: "⭐", label: "Top Rated", path: "/explore/rated" },
+  { emoji: "😮", label: "Controversial", path: "/explore/controversial" },
+  { emoji: "🆕", label: "New Reviews", path: "/explore/reviews" },
+  { emoji: "🧠", label: "Thought-Provoking", path: "/explore/thought" },
+  { emoji: "🔁", label: "Most Reviewed", path: "/explore/most_reviewed" },
+] as const;

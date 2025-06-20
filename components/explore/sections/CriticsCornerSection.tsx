@@ -52,7 +52,7 @@ export default function CriticsCornerSection({ textColor, cardBackgroundColor }:
             cardBackgroundColor={cardBackgroundColor}
             onPress={() =>
               router.push({
-                pathname: "/critic/[id]",
+                pathname: "/screens/critic/[id]",
                 params: { id: item.id.toString() },
               })
             }

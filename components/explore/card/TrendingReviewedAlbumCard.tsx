@@ -27,7 +27,7 @@ export default function TrendingReviewedAlbumCard({
 }: TrendingReviewedAlbumCardProps) {
   const goToDetail = () => {
     router.push({
-      pathname: "/music/[id]",
+      pathname: "/screens/music/[id]",
       params: { id: id.toString() },
     });
   };
