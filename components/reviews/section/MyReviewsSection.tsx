@@ -6,6 +6,7 @@ type Props = {
   textColor: string;
   cardBackgroundColor: string;
   reviews: typeof myReviewData;
+  onPress?: () => void;
 };
 
 export default function MyReviewsSection({ textColor, cardBackgroundColor, reviews }: Props) {

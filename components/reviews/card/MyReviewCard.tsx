@@ -17,6 +17,7 @@ type MyReviewCardProps = {
   cardBackgroundColor: string;
   onEdit?: () => void;
   onDelete?: () => void;
+  onPress?: () => void;
 };
 
 export default function MyReviewCard({
@@ -38,7 +39,7 @@ export default function MyReviewCard({
 
   const goToDetail = () => {
     router.push({
-      pathname: "/my_review/[id]",
+      pathname: "/reviews/my_review",
       params: { id: id.toString() },
     });
   };
