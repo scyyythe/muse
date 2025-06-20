@@ -8,7 +8,7 @@ const topRatedAlbums = [
   {
     id: 1,
     title: "Blonde",
-    image: "https://i.imgur.com/f1pX1aF.jpg",
+    image: "https://i.scdn.co/image/ab67616d00001e02c5649add07ed3720be9d5526",
     rating: "9.5",
     artist: "Frank Ocean",
     reviewCount: 320,
@@ -17,7 +17,7 @@ const topRatedAlbums = [
   {
     id: 2,
     title: "1989 (Taylor's Version)",
-    image: "https://i.imgur.com/KzBF02R.jpg",
+    image: "https://i.scdn.co/image/ab67616d00001e02904445d70d04eb24d6bb79ac",
     rating: "9.2",
     artist: "Taylor Swift",
     reviewCount: 410,
@@ -26,7 +26,7 @@ const topRatedAlbums = [
   {
     id: 3,
     title: "To Pimp a Butterfly",
-    image: "https://i.imgur.com/qZ3YrPz.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROybJAzKdpNm9ryLpUrl9KAlHIgm1dzTGmCg&s",
     rating: "9.8",
     artist: "Kendrick Lamar",
     reviewCount: 390,
@@ -35,7 +35,7 @@ const topRatedAlbums = [
   {
     id: 4,
     title: "Random Access Memories",
-    image: "https://i.imgur.com/hWjBtHd.jpg",
+    image: "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937",
     rating: "9.0",
     artist: "Daft Punk",
     reviewCount: 290,
@@ -44,7 +44,7 @@ const topRatedAlbums = [
   {
     id: 5,
     title: "In Rainbows",
-    image: "https://i.imgur.com/DHgI6hA.jpg",
+    image: "https://i.scdn.co/image/ab67616d00001e02de3c04b5fc750b68899b20a9",
     rating: "9.3",
     artist: "Radiohead",
     reviewCount: 370,
@@ -53,7 +53,7 @@ const topRatedAlbums = [
   {
     id: 6,
     title: "Lemonade",
-    image: "https://i.imgur.com/Zo7tAqf.jpg",
+    image: "https://i.scdn.co/image/ab67616d00001e0289992f4d7d4ab94937bf9e23",
     rating: "9.4",
     artist: "Beyoncé",
     reviewCount: 345,
@@ -62,7 +62,7 @@ const topRatedAlbums = [
   {
     id: 7,
     title: "DAMN.",
-    image: "https://i.imgur.com/xR2swId.jpg",
+    image: "https://i.scdn.co/image/ab67616d0000b273add9eb25744782c3717c9368",
     rating: "9.1",
     artist: "Kendrick Lamar",
     reviewCount: 280,
@@ -71,7 +71,7 @@ const topRatedAlbums = [
   {
     id: 8,
     title: "Melodrama",
-    image: "https://i.imgur.com/Z9Rmqha.jpg",
+    image: "https://i.scdn.co/image/ab67616d0000b273f8553e18a11209d4becd0336",
     rating: "9.2",
     artist: "Lorde",
     reviewCount: 330,
@@ -80,7 +80,7 @@ const topRatedAlbums = [
   {
     id: 9,
     title: "Good Kid, M.A.A.D City",
-    image: "https://i.imgur.com/Sqf07nF.jpg",
+    image: "https://i.scdn.co/image/ab67616d0000b273d58e537cea05c2156792c53d",
     rating: "9.7",
     artist: "Kendrick Lamar",
     reviewCount: 410,
@@ -89,7 +89,7 @@ const topRatedAlbums = [
   {
     id: 10,
     title: "Norman F***ing Rockwell!",
-    image: "https://i.imgur.com/yO5qgkn.jpg",
+    image: "https://i.scdn.co/image/ab67616d00001e02879e9318cb9f4e05ee552ac9",
     rating: "9.3",
     artist: "Lana Del Rey",
     reviewCount: 290,

@@ -1,4 +1,3 @@
-
 import { Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { useRouter } from "expo-router";
@@ -13,7 +12,6 @@ type TopReview = {
   rating?: number;
 };
 
-
 type Props = {
   review: TopReview;
   cardBackgroundColor?: string;
@@ -24,8 +22,7 @@ export default function TopReviewCard({ review, cardBackgroundColor = "rgba(0, 0
 
   return (
     <TouchableOpacity
-      onPress={() => router.push({ pathname: "/screens/top-review/top",params: { id: review.id.toString() }
-})}
+      onPress={() => router.push({ pathname: "/screens/top-review/top", params: { id: review.id.toString() } })}
       style={{ borderRadius: 16, overflow: "hidden" }}
     >
       <Image
@@ -48,7 +45,7 @@ export default function TopReviewCard({ review, cardBackgroundColor = "rgba(0, 0
           padding: 14,
           borderBottomLeftRadius: 16,
           borderBottomRightRadius: 16,
-          backgroundColor: cardBackgroundColor, // ✅ Use the prop here
+          backgroundColor: cardBackgroundColor,
         }}
       >
         {review.rating !== undefined && (
