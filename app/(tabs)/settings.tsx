@@ -267,7 +267,7 @@ export default function Dashboard() {
                 text: "Logout",
                 style: "destructive",
                 onPress: () => {
-                  router.replace("../../");
+                  router.replace("/");
                 },
               },
             ]);

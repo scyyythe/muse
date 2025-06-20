@@ -68,7 +68,7 @@ export default function MyReviewDetailScreen() {
           backgroundColor: cardBackground,
           borderRadius: 16,
           padding: 16,
-          marginTop: 20,
+          marginTop: 5,
           elevation: 4,
         }}
       >
