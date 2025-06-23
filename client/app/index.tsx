@@ -3,6 +3,7 @@ import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
 import { Animated, Image, Pressable, Text, View, useWindowDimensions } from "react-native";
 import Swiper from "react-native-web-swiper";
+import API from "@/utils/api";
 export default function WelcomeScreen() {
   const [index, setIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -20,8 +21,18 @@ export default function WelcomeScreen() {
       duration: 600,
       useNativeDriver: true,
     }).start();
+
+    testConnection();
   }, [index]);
 
+  const testConnection = async () => {
+    try {
+      const res = await API.get("/ping");
+      console.log("✅ Connection success:", res.data.message);
+    } catch (err) {
+      console.error("❌ Connection failed:");
+    }
+  };
   return (
     <View style={{ flex: 1, backgroundColor }}>
       <Swiper loop={false} controlsEnabled={false} onIndexChanged={(i) => setIndex(i)}>

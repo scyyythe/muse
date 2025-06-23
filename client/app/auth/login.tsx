@@ -7,7 +7,7 @@ import { Button } from "@react-navigation/elements";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
+import useLogin from "@/hooks/auth/useLogin";
 type Props = {
   navigation: LoginScreenNavigationProp;
 };
@@ -19,8 +19,9 @@ export default function LoginScreen({ navigation }: Props) {
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
   const backgroundColor = useThemeColor({}, "background");
+  const { login, loading } = useLogin();
   const handleLogin = () => {
-    router.push("/(tabs)");
+    login(email, password);
   };
   return (
     <KeyboardAvoidingView style={{ flex: 1, backgroundColor }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
@@ -76,9 +77,16 @@ export default function LoginScreen({ navigation }: Props) {
           </View>
         </View>
 
-        <Button color={button} onPress={handleLogin} variant="filled" style={{ paddingVertical: 15, marginTop: 15 }}>
-          Sign In
+        <Button
+          color={button}
+          onPress={handleLogin}
+          variant="filled"
+          style={{ paddingVertical: 15, marginTop: 15 }}
+          disabled={loading}
+        >
+          {loading ? "Signing In..." : "Sign In"}
         </Button>
+
         <View style={styles.IconsContainer}>
           <Text style={[styles.signWith, { color: subText }]}>or sign in with</Text>
           <View style={styles.socialContainer}>

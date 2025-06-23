@@ -7,6 +7,7 @@ import { router } from "expo-router";
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import useRegister from "@/hooks/auth/useRegister";
 export default function RegisterScreen() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,6 +18,8 @@ export default function RegisterScreen() {
   const textColor = useThemeColor({}, "text");
   const subText = useThemeColor({}, "subText");
   const backgroundColor = useThemeColor({}, "background");
+  const { register, loading } = useRegister();
+
   return (
     <KeyboardAvoidingView style={{ flex: 1, backgroundColor }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
       <ScrollView
@@ -72,7 +75,13 @@ export default function RegisterScreen() {
           />
         </View>
 
-        <Button color={button} variant="filled" style={{ paddingVertical: 15, marginTop: 20 }}>
+        <Button
+          color={button}
+          variant="filled"
+          style={{ paddingVertical: 15, marginTop: 20 }}
+          onPress={() => register(fullName, email, password, confirmPassword)}
+          disabled={loading}
+        >
           Create Account
         </Button>
 

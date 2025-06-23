@@ -16,6 +16,9 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+app.get("/api/ping", (req, res) => {
+  res.json({ message: "Backend is working!" });
+});
 
 app.use("/api", authRoutes);
 app.get("/", (req, res) => {
