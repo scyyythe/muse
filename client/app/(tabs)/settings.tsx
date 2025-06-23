@@ -1,12 +1,26 @@
 import SettingsCard from "@/components/settings/card/SettingsCard";
 import UserSettingsHeader from "@/components/settings/UserSettingsHeader";
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { useTheme } from "@/context/ThemeContext";
+
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
+import API from "@/utils/api";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import axios from "axios";
+import * as SecureStore from "expo-secure-store";
 export default function Dashboard() {
+  const [user, setUser] = useState({
+    fullName: "",
+    username: "",
+    profilePicture: "",
+    bio: "",
+  });
+  const fallbackAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnZO-HbYIOIzEYS_uNiCS2YtyAn53nJeWbw&s";
+  const { theme, toggleTheme } = useTheme();
   const subText = useThemeColor({}, "subText");
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
@@ -16,11 +30,40 @@ export default function Dashboard() {
 
   const router = useRouter();
 
-  const [darkMode, setDarkMode] = useState(true);
+  const systemTheme = useColorScheme();
+  const [darkMode, setDarkMode] = useState(systemTheme === "dark");
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const [publicReviews, setPublicReviews] = useState(true);
-
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await API.get("/user/me");
+        console.log("Fetched user:", res.data.user);
+        setUser(res.data.user);
+      } catch (err: unknown) {
+        if (axios.isAxiosError(err)) {
+          console.error("Error response from backend:", err.response?.data);
+          console.error("Status:", err.response?.status);
+        } else if (err instanceof Error) {
+          console.error("Unknown error:", err.message);
+        } else {
+          console.error("Unexpected error", err);
+        }
+      }
+    };
+    getUser();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      const saved = await SecureStore.getItemAsync("darkMode");
+      if (saved !== null) setDarkMode(saved === "true");
+    })();
+  }, []);
+  const handleToggle = async (value: boolean) => {
+    setDarkMode(value);
+    await SecureStore.setItemAsync("darkMode", value.toString());
+  };
   return (
     <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
       <Animatable.View
@@ -98,18 +141,21 @@ export default function Dashboard() {
           </TouchableOpacity>
         </View>
         <UserSettingsHeader
-          name="Angel Canete"
-          username="hsjaodjak"
-          avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnZO-HbYIOIzEYS_uNiCS2YtyAn53nJeWbw&s"
-          bio="Sharing honest thoughts on music."
+          name={user.fullName || "Unnamed User"}
+          username={user.username || "anonymous"}
+          avatar={
+            user.profilePicture?.trim()
+              ? user.profilePicture
+              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnZO-HbYIOIzEYS_uNiCS2YtyAn53nJeWbw&s"
+          }
+          bio={user.bio}
           totalReviews={35}
           averageRating={4.2}
           textColor={textColor}
           cardBackgroundColor={cardBackgroundColor}
-          onEdit={() => {
-            // handle edit action
-          }}
+          onEdit={() => router.push("/settings/EditProfile")}
         />
+
         <View
           style={{
             backgroundColor: cardBackgroundColor,
@@ -128,8 +174,19 @@ export default function Dashboard() {
             Account Settings
           </Text>
 
-          <SettingsCard title="Edit Profile" icon="create-outline" onPress={() => {}} textColor={textColor} />
-          <SettingsCard title="Change Password" icon="key-outline" onPress={() => {}} textColor={textColor} />
+          <SettingsCard
+            title="Edit Profile"
+            icon="create-outline"
+            onPress={() => router.push("/settings/EditProfile")}
+            textColor={textColor}
+          />
+
+          <SettingsCard
+            title="Change Password"
+            icon="key-outline"
+            onPress={() => router.push("/settings/change-password")}
+            textColor={textColor}
+          />
           <SettingsCard title="Delete Account" icon="trash-outline" onPress={() => {}} textColor={textColor} />
         </View>
         <View
@@ -149,16 +206,15 @@ export default function Dashboard() {
           >
             App Preferences
           </Text>
-
           <SettingsCard
             title="Dark Mode"
             icon="moon-outline"
             isToggle
-            toggleValue={darkMode}
-            onToggleChange={setDarkMode}
+            toggleValue={theme === "dark"}
+            onToggleChange={toggleTheme}
             textColor={textColor}
           />
-
+          ;
           <SettingsCard
             title="Notifications"
             icon="notifications-outline"
@@ -227,27 +283,21 @@ export default function Dashboard() {
           <SettingsCard
             title="Help & FAQ"
             icon="help-circle-outline"
-            onPress={() => {
-              // router.push("/help");
-            }}
+            onPress={() => router.push("/settings/Help")}
             textColor={textColor}
           />
 
           <SettingsCard
             title="Contact Support"
             icon="chatbubble-ellipses-outline"
-            onPress={() => {
-              // router.push("/support");
-            }}
+            onPress={() => router.push("/settings/Support")}
             textColor={textColor}
           />
 
           <SettingsCard
             title="Terms & Privacy"
             icon="document-text-outline"
-            onPress={() => {
-              // router.push("/terms");
-            }}
+            onPress={() => router.push("/settings/Terms")}
             textColor={textColor}
           />
 

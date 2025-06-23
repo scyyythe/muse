@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,8 @@ app.get("/api/ping", (req, res) => {
 });
 
 app.use("/api", authRoutes);
+app.use("/api/user", userRoutes);
+
 app.get("/", (req, res) => {
   res.send("Backend is running.");
 });
