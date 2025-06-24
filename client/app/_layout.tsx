@@ -1,11 +1,11 @@
 // app/_layout.tsx
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Poppins_400Regular, Poppins_700Bold } from "@expo-google-fonts/poppins";
-import { DarkTheme, DefaultTheme } from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { ThemeProvider } from "@/context/ThemeContext";
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
@@ -19,7 +19,7 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         {/* Login or Landing */}
         <Stack.Screen name="index" />

@@ -8,6 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const app = express();
 app.use(cors());
 app.use(express.json());
+// node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 
 mongoose
   .connect(process.env.MONGO_URI)

@@ -11,6 +11,7 @@ import * as Animatable from "react-native-animatable";
 import API from "@/utils/api";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import axios from "axios";
+
 import * as SecureStore from "expo-secure-store";
 export default function Dashboard() {
   const [user, setUser] = useState({
@@ -19,19 +20,18 @@ export default function Dashboard() {
     profilePicture: "",
     bio: "",
   });
-  const fallbackAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnZO-HbYIOIzEYS_uNiCS2YtyAn53nJeWbw&s";
+
   const { theme, toggleTheme } = useTheme();
-  const subText = useThemeColor({}, "subText");
+
   const textColor = useThemeColor({}, "text");
   const backgroundColor = useThemeColor({}, "background");
-  const border = useThemeColor({}, "border");
-  const button = useThemeColor({}, "button");
+
   const cardBackgroundColor = useThemeColor({}, "cardBackground");
 
   const router = useRouter();
 
   const systemTheme = useColorScheme();
-  const [darkMode, setDarkMode] = useState(systemTheme === "dark");
+
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const [publicReviews, setPublicReviews] = useState(true);
@@ -54,16 +54,7 @@ export default function Dashboard() {
     };
     getUser();
   }, []);
-  useEffect(() => {
-    (async () => {
-      const saved = await SecureStore.getItemAsync("darkMode");
-      if (saved !== null) setDarkMode(saved === "true");
-    })();
-  }, []);
-  const handleToggle = async (value: boolean) => {
-    setDarkMode(value);
-    await SecureStore.setItemAsync("darkMode", value.toString());
-  };
+
   return (
     <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
       <Animatable.View
@@ -214,7 +205,7 @@ export default function Dashboard() {
             onToggleChange={toggleTheme}
             textColor={textColor}
           />
-          ;
+
           <SettingsCard
             title="Notifications"
             icon="notifications-outline"

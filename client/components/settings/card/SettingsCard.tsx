@@ -22,31 +22,36 @@ export default function SettingsCard({
   onToggleChange,
 }: Props) {
   return (
-    <TouchableOpacity onPress={onPress} disabled={isToggle}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 14,
-          paddingHorizontal: 12,
-          borderBottomWidth: 1,
-          borderColor: textColor + "22",
-          justifyContent: "space-between",
-        }}
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: 14,
+        paddingHorizontal: 12,
+        borderBottomWidth: 1,
+        borderColor: textColor + "22",
+        justifyContent: "space-between",
+      }}
+    >
+      {/* Left side: icon and text, clickable only if not a toggle */}
+      <TouchableOpacity
+        onPress={isToggle ? undefined : onPress}
+        activeOpacity={isToggle ? 1 : 0.6}
+        style={{ flexDirection: "row", alignItems: "center" }}
       >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Ionicons name={icon} size={20} color={textColor} style={{ marginRight: 12 }} />
-          <Text style={{ color: textColor, fontSize: 14, fontFamily: "Poppins_500Medium" }}>{title}</Text>
-        </View>
-        {isToggle && (
-          <Switch
-            value={toggleValue}
-            onValueChange={onToggleChange}
-            thumbColor={toggleValue ? textColor : "#888"}
-            trackColor={{ false: "#ccc", true: textColor + "55" }}
-          />
-        )}
-      </View>
-    </TouchableOpacity>
+        <Ionicons name={icon} size={20} color={textColor} style={{ marginRight: 12 }} />
+        <Text style={{ color: textColor, fontSize: 14, fontFamily: "Poppins_500Medium" }}>{title}</Text>
+      </TouchableOpacity>
+
+      {/* Right side: toggle switch (interactive) */}
+      {isToggle && (
+        <Switch
+          value={toggleValue}
+          onValueChange={onToggleChange}
+          thumbColor={toggleValue ? textColor : "#888"}
+          trackColor={{ false: "#ccc", true: textColor + "55" }}
+        />
+      )}
+    </View>
   );
 }
