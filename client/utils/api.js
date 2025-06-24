@@ -2,7 +2,7 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const API = axios.create({
-  baseURL: "http://192.168.100.11:3001/api",
+  baseURL: process.env.EXPO_PUBLIC_API_URL + "/api",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
@@ -10,16 +10,14 @@ const API = axios.create({
 });
 
 API.interceptors.request.use(async (config) => {
-  const publicRoutes = ["/register", "/login"];
-  const shouldSkipAuth = publicRoutes.some(route => config.url?.includes(route));
+  const publicRoutes = ["/login", "/register", "/google-auth"];
+  const shouldSkipAuth = publicRoutes.some((route) => config.url?.includes(route));
 
   if (shouldSkipAuth) {
-    console.log("📤 No token sent for public route:", config.url);
     return config;
   }
 
   const token = await AsyncStorage.getItem("token");
-  console.log("📤 Sending token in header:", token);
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -27,6 +25,5 @@ API.interceptors.request.use(async (config) => {
 
   return config;
 });
-
 
 export default API;

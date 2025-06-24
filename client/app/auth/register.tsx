@@ -6,7 +6,7 @@ import { Button } from "@react-navigation/elements";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
+import useGoogleAuth from "@/hooks/auth/useGoogleAuth";
 import useRegister from "@/hooks/auth/useRegister";
 export default function RegisterScreen() {
   const [fullName, setFullName] = useState("");
@@ -19,6 +19,7 @@ export default function RegisterScreen() {
   const subText = useThemeColor({}, "subText");
   const backgroundColor = useThemeColor({}, "background");
   const { register, loading } = useRegister();
+  const { promptAsync } = useGoogleAuth();
 
   return (
     <KeyboardAvoidingView style={{ flex: 1, backgroundColor }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
@@ -88,7 +89,7 @@ export default function RegisterScreen() {
         <View style={styles.IconsContainer}>
           <Text style={[styles.signWith, { color: subText }]}>or sign in with</Text>
           <View style={styles.socialContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => promptAsync()}>
               <AntDesign name="google" size={15} color={textColor} />
             </TouchableOpacity>
             <TouchableOpacity>

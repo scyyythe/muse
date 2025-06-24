@@ -8,6 +8,7 @@ import { router } from "expo-router";
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import useLogin from "@/hooks/auth/useLogin";
+import useGoogleAuth from "@/hooks/auth/useGoogleAuth";
 type Props = {
   navigation: LoginScreenNavigationProp;
 };
@@ -20,6 +21,8 @@ export default function LoginScreen({ navigation }: Props) {
   const subText = useThemeColor({}, "subText");
   const backgroundColor = useThemeColor({}, "background");
   const { login, loading } = useLogin();
+  const { promptAsync } = useGoogleAuth();
+
   const handleLogin = () => {
     login(email, password);
   };
@@ -90,9 +93,10 @@ export default function LoginScreen({ navigation }: Props) {
         <View style={styles.IconsContainer}>
           <Text style={[styles.signWith, { color: subText }]}>or sign in with</Text>
           <View style={styles.socialContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => promptAsync()}>
               <AntDesign name="google" size={15} color={textColor} />
             </TouchableOpacity>
+
             <TouchableOpacity>
               <FontAwesome name="facebook" size={15} color={textColor} />
             </TouchableOpacity>

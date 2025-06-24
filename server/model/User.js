@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema(
     bio: { type: String, default: "" },
     location: { type: String, default: "" },
     phone: { type: String, default: "" },
+    isGoogleAccount: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
