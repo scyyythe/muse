@@ -1,4 +1,5 @@
 const User = require("../model/User");
+const bcrypt = require("bcrypt");
 
 const getMe = async (req, res) => {
   try {
@@ -36,5 +37,20 @@ const updateUserProfile = async (req, res) => {
     res.status(500).json({ error: "Failed to update profile" });
   }
 };
+const changePassword = async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  const user = await User.findById(req.user.id);
 
-module.exports = { getMe, updateUserProfile };
+  const isMatch = await bcrypt.compare(currentPassword, user.password);
+  if (!isMatch) {
+    return res.status(400).json({ error: "Current password is incorrect" });
+  }
+
+  const hashed = await bcrypt.hash(newPassword, 10);
+  user.password = hashed;
+  await user.save();
+
+  res.json({ message: "Password updated successfully" });
+};
+
+module.exports = { getMe, updateUserProfile, changePassword };

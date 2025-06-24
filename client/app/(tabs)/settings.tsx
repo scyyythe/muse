@@ -11,7 +11,8 @@ import * as Animatable from "react-native-animatable";
 import API from "@/utils/api";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import axios from "axios";
-
+import { useFocusEffect } from "expo-router";
+import { useCallback } from "react";
 import * as SecureStore from "expo-secure-store";
 export default function Dashboard() {
   const [user, setUser] = useState({
@@ -35,25 +36,22 @@ export default function Dashboard() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const [publicReviews, setPublicReviews] = useState(true);
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await API.get("/user/me");
-        console.log("Fetched user:", res.data.user);
-        setUser(res.data.user);
-      } catch (err: unknown) {
-        if (axios.isAxiosError(err)) {
-          console.error("Error response from backend:", err.response?.data);
-          console.error("Status:", err.response?.status);
-        } else if (err instanceof Error) {
-          console.error("Unknown error:", err.message);
-        } else {
-          console.error("Unexpected error", err);
+
+  useFocusEffect(
+    useCallback(() => {
+      const getUser = async () => {
+        try {
+          const res = await API.get("/user/me");
+          console.log("Refetched user on focus:", res.data.user);
+          setUser(res.data.user);
+        } catch (err) {
+          console.error("Failed to refetch user on focus:", err);
         }
-      }
-    };
-    getUser();
-  }, []);
+      };
+
+      getUser();
+    }, [])
+  );
 
   return (
     <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
