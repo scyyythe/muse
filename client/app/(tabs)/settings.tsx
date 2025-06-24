@@ -31,8 +31,6 @@ export default function Dashboard() {
 
   const router = useRouter();
 
-  const systemTheme = useColorScheme();
-
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   const [publicReviews, setPublicReviews] = useState(true);
@@ -52,7 +50,23 @@ export default function Dashboard() {
       getUser();
     }, [])
   );
+  const handleLogout = async () => {
+    Alert.alert("Confirm Logout", "Are you sure you want to log out?", [
+      { text: "Cancel", style: "cancel" },
+      {
+        text: "Logout",
+        style: "destructive",
+        onPress: async () => {
+          // Clear tokens or any saved user data
+          await SecureStore.deleteItemAsync("token");
+          await SecureStore.deleteItemAsync("user");
 
+          // Navigate to landing page
+          router.replace("/");
+        },
+      },
+    ]);
+  };
   return (
     <ScrollView stickyHeaderIndices={[2]} showsVerticalScrollIndicator={false}>
       <Animatable.View
@@ -306,7 +320,7 @@ export default function Dashboard() {
                 text: "Logout",
                 style: "destructive",
                 onPress: () => {
-                  router.replace("/");
+                  handleLogout;
                 },
               },
             ]);
