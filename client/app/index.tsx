@@ -62,8 +62,8 @@ export default function WelcomeScreen() {
           }}
         >
           <Image
-            source={require("../assets/images/index/disc-index.png")}
-            style={{ width: 180, height: 180, resizeMode: "contain" }}
+            source={require("../assets/icons/icon2.png")}
+            style={{ width: 300, height: 400, resizeMode: "contain", marginTop: 50 }}
           />
         </View>
 
