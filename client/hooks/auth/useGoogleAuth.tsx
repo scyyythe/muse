@@ -2,7 +2,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import { useEffect } from "react";
 import { Alert } from "react-native";
-import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 
 WebBrowser.maybeCompleteAuthSession();
@@ -47,8 +47,7 @@ export default function useGoogleAuth() {
         throw new Error(data.error || "Google login failed");
       }
 
-      // Step 3: Save token securely and navigate
-      await SecureStore.setItemAsync("token", data.token);
+      await AsyncStorage.setItem("token", data.token); // ✅ Replaced SecureStore
       Alert.alert("Success", "Logged in with Google!");
       router.replace("/(tabs)");
     } catch (err) {
