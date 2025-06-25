@@ -62,7 +62,7 @@ export default function Dashboard() {
           await SecureStore.deleteItemAsync("user");
 
           // Navigate to landing page
-          router.replace("/");
+          router.push("/");
         },
       },
     ]);
